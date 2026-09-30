@@ -16,3 +16,13 @@ La v2 sigue el método de `.claude/skills/branding/SKILL.md`: primero lo visual 
 - `v2/inversion.html`: los precios por etapas, aparte, para enviarlos solo cuando el cliente pregunte.
 - `v2/logo/`: el wordmark, el isotipo y las rutas en SVG, con sus versiones en negativo.
 - `v2/src/`: los scripts que generan todo. `logos.py` traza los wordmarks con Archivo Expanded SemiBold y Outfit SemiBold (ambas con licencia OFL) y dibuja las S propias; `build.py` arma la página a partir de `template.html`. Para regenerar: `pip install fonttools uharfbuzz && python3 v2/src/logos.py && python3 v2/src/build.py`.
+
+## Publicar en Cloudflare Pages
+
+`publico/` es la carpeta que se publica. Solo contiene la propuesta, sin precios, y le pide a Google que no la indexe.
+
+1. En Cloudflare: Workers & Pages → Create → Pages → Connect to Git → `feeldavybzz/design-skills`.
+2. Framework preset: None. Build command: vacío. Build output directory: `publico`.
+3. Production branch: `main` (después de fusionar el PR) o la rama de trabajo.
+
+Cada push a esa rama vuelve a publicar la página. Para regenerar `publico/`, corre `python3 strategies/v2/src/build.py`.

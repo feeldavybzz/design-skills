@@ -35,3 +35,13 @@ for src, dst in [("template.html", "index.html"), ("template-inversion.html", "i
     out = render((HERE / src).read_text())
     (HERE.parent / dst).write_text(out)
     print("ok", dst, len(out) // 1024, "KB")
+
+# Carpeta que publica Cloudflare Pages: solo la propuesta. La inversión se queda fuera a propósito.
+PUBLIC = HERE.parents[2] / "publico"
+PUBLIC.mkdir(exist_ok=True)
+page = (HERE.parent / "index.html").read_text()
+(PUBLIC / "index.html").write_text(
+    '<!doctype html><html lang="es"><head><meta charset="utf-8">'
+    '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+    '<meta name="robots" content="noindex"></head><body>' + page + "</body></html>\n")
+print("ok publico/index.html")
