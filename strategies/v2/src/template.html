@@ -1,0 +1,758 @@
+<title>Strategies · Propuesta v2</title>
+<meta name="description" content="Tres caminos de logo para Strategies, pruebas de uso, sistema de marca y cuestionario visual. Por MUKIWA DEPARTMENT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Newsreader:ital,opsz,wght@1,6..72,300..500&display=swap">
+<style>
+/* Layout: propuesta visual primero. Cada capítulo abre con número y rótulo lateral; las rutas ocupan el ancho completo como láminas. */
+:root{
+  /* Identidad fija de Strategies (muestras de marca, no cambian con el tema) */
+  --b-tinta:#111315; --b-papel:#F3F3F0; --b-grafito:#5E636A; --b-niebla:#CDD6DA; --b-senal:#EE8A22;
+  /* Tokens de página, tema claro */
+  --bg:#F3F3F0; --fg:#111315; --muted:#5E636A; --line:#D2D5D4; --card:#FBFBF9; --accent:#B85F0C;
+  --tile:#111315; --tile-fg:#F3F3F0; --sel:#111315; --sel-fg:#F3F3F0;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --s1:clamp(2.4rem,6.4vw,5rem); --s2:clamp(1.7rem,3.6vw,2.6rem); --s3:1.25rem; --s5:.8125rem; --s6:.6875rem;
+  --gut:clamp(16px,4vw,48px); --max:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1113;--fg:#ECEDEA;--muted:#9AA0A7;--line:#2A2E32;--card:#15181A;--accent:#F29A3A;--tile:#ECEDEA;--tile-fg:#111315;--sel:#ECEDEA;--sel-fg:#111315;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1113;--fg:#ECEDEA;--muted:#9AA0A7;--line:#2A2E32;--card:#15181A;--accent:#F29A3A;--tile:#ECEDEA;--tile-fg:#111315;--sel:#ECEDEA;--sel-fg:#111315;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:1rem;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+h1,h2,h3{font-family:var(--display);font-stretch:125%;font-weight:650;letter-spacing:-.01em;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:var(--s2)} h3{font-size:var(--s3);font-stretch:112%;font-weight:600}
+p{margin:0;max-width:62ch}
+.lbl{font-size:var(--s6);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.muted{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+svg.a{display:block;height:auto;max-width:100%}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:56px}
+.top .brand{color:var(--fg);width:130px}
+.top nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+.top nav a{font-size:var(--s5);text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--fg)}
+.top nav a.go{color:var(--fg);font-weight:600}
+@media (max-width:760px){.top nav a:not(.go){display:none}}
+
+section{padding-block:clamp(56px,9vw,112px);border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:24px 40px;margin-bottom:clamp(32px,5vw,56px)}
+.head .num{font-stretch:125%;font-weight:600;font-size:var(--s5);color:var(--muted);padding-top:.5em;font-variant-numeric:tabular-nums}
+.head .body{display:grid;gap:16px}
+@media (max-width:760px){.head{grid-template-columns:1fr;gap:8px}}
+
+/* héroe */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(48px,7vw,96px)}
+.hero .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-top:clamp(40px,6vw,72px)}
+@media (max-width:860px){.hero .intro{grid-template-columns:1fr}}
+.hero h1{font-size:var(--s1);font-weight:700;letter-spacing:-.02em}
+.hero .stage{background:var(--b-papel);color:var(--b-tinta);border:1px solid var(--line);border-radius:4px;padding:clamp(48px,10vw,120px) clamp(20px,6vw,80px);display:grid;gap:18px;justify-items:center}
+.hero .stage .desc{font-stretch:125%;font-weight:500;letter-spacing:.34em;font-size:clamp(9px,1.3vw,14px);color:var(--b-grafito);text-align:center}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:560px){.steps3{grid-template-columns:1fr}}
+.steps3 div{border-top:1px solid var(--fg);padding-top:10px;display:grid;gap:4px;font-size:var(--s5)}
+.steps3 b{font-weight:600;font-size:.95rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px}
+.meta div{display:grid;gap:2px}
+.meta b{font-weight:500;font-size:var(--s5)}
+@media (prefers-reduced-motion:no-preference){
+  .draw{stroke-dasharray:3000;animation:draw 1.5s cubic-bezier(.6,0,.2,1) .25s both}
+  .pop{transform-box:fill-box;transform-origin:center;animation:pop .45s cubic-bezier(.3,1.6,.5,1) 1.55s both}
+  .rise{animation:rise .6s ease-out both}
+  @keyframes draw{from{stroke-dashoffset:3000}}
+  @keyframes pop{from{transform:scale(0)}}
+  @keyframes rise{from{opacity:.001;transform:translateY(6px)}}
+}
+
+/* rutas */
+.routes{display:grid;gap:24px}
+.route{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--card);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+.route.rec{border-color:var(--fg)}
+@media (max-width:900px){.route{grid-template-columns:1fr}}
+.route .plate{background:var(--b-papel);color:var(--b-tinta);display:grid;grid-template-rows:auto 1fr auto;gap:20px;padding:clamp(18px,3vw,28px);min-height:340px;position:relative}
+.route .plate .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.route .plate .tag{font-size:var(--s6);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--b-grafito)}
+.route .plate .pill{background:var(--b-tinta);color:var(--b-papel);font-size:var(--s6);letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:5px 9px;border-radius:99px}
+.route .plate .main{display:grid;place-items:center;padding-inline:4%}
+.route .plate .minis{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.mini{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:none;overflow:hidden}
+.mini svg{width:56%;height:auto}
+.mini.sq{border-radius:11px}
+.mini.sq svg{width:62%}
+.on-papel{background:var(--b-papel);color:var(--b-tinta)} .on-tinta{background:var(--b-tinta);color:var(--b-papel)}
+.on-niebla{background:var(--b-niebla);color:var(--b-tinta)} .on-senal{background:var(--b-senal);color:var(--b-tinta)}
+.bordered{box-shadow:inset 0 0 0 1px #D2D5D4}
+.route .txt{padding:clamp(20px,3vw,32px);display:grid;gap:14px;align-content:start;min-width:0}
+.route .say{font-family:var(--serif);font-style:italic;font-size:1.25rem;line-height:1.3}
+.bars{display:grid;gap:8px;margin-top:4px}
+.bar{display:grid;grid-template-columns:minmax(0,88px) minmax(0,1fr) minmax(0,88px);gap:10px;align-items:center;font-size:var(--s6);color:var(--muted);letter-spacing:.04em}
+.bar span:last-child{text-align:right}
+.bar i{position:relative;height:1px;background:var(--line);display:block}
+.bar i b{position:absolute;top:-5px;width:11px;height:11px;border-radius:50%;background:var(--fg);transform:translateX(-50%)}
+.pros{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:var(--s5)}
+@media (max-width:480px){.pros{grid-template-columns:1fr}}
+.pros div{display:grid;gap:4px;align-content:start}
+
+/* tabla */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:var(--s5)}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th{font-size:var(--s6);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.sc{white-space:nowrap}
+.dots{display:inline-flex;gap:3px;vertical-align:middle;margin-right:8px}
+.dots i{width:8px;height:8px;border-radius:50%;border:1px solid var(--fg);display:block}
+.dots i.f{background:var(--fg)}
+tfoot td{font-weight:600}
+
+/* detalle */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px;display:grid;gap:16px;align-content:start;min-width:0}
+.panel .art{background:var(--b-papel);color:var(--b-tinta);border-radius:2px;display:grid;place-items:center;padding:28px 20px;overflow:hidden}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%}
+.cmp div{display:grid;gap:10px;justify-items:center;font-size:var(--s6);letter-spacing:.1em;text-transform:uppercase;color:var(--b-grafito);font-weight:600}
+.cmp svg{width:70%;height:auto;color:var(--b-tinta)}
+.concept{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.3;border-left:1px solid var(--fg);padding-left:20px;max-width:40ch}
+.concept em{font-style:italic}
+
+/* pruebas */
+.tests{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.tests>*{min-width:0}
+.t{border:1px solid var(--line);border-radius:4px;overflow:hidden;display:grid;grid-template-rows:1fr auto}
+.t .a{display:flex;align-items:center;justify-content:center;gap:22px;padding:28px 16px;flex-wrap:wrap;min-height:150px}
+.t .c{padding:10px 14px;font-size:var(--s5);border-top:1px solid var(--line);background:var(--card);display:flex;justify-content:space-between;gap:8px}
+.t .c span{color:var(--muted)}
+.t.w12{grid-column:span 12}.t.w6{grid-column:span 6}.t.w4{grid-column:span 4}
+@media (max-width:860px){.t.w6,.t.w4{grid-column:span 12}}
+.sizes{display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;justify-content:center}
+.sizes figure{margin:0;display:grid;gap:8px;justify-items:center;font-size:var(--s6);color:var(--b-grafito);font-variant-numeric:tabular-nums}
+.photo{position:relative;background-size:cover;background-position:center 60%;min-height:260px}
+.photo .over{position:absolute;inset:auto 0 0 0;padding:22px;background:linear-gradient(transparent,rgba(17,19,21,.72));color:#F3F3F0}
+
+/* sistema */
+.map{background:var(--b-papel);color:var(--b-tinta);border:1px solid var(--line);border-radius:4px;padding:clamp(20px,4vw,40px);overflow-x:auto}
+.map svg{min-width:640px;width:100%;height:auto;display:block}
+.sys{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:16px}
+.voice{display:grid;gap:10px}
+.voice div{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;font-size:var(--s5)}
+.voice b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.05rem}
+.voice s{color:var(--muted)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr));gap:10px}
+.sw{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--card)}
+.sw .chip{aspect-ratio:3/2;padding:12px;display:flex;align-items:flex-end;font-stretch:125%;font-weight:600}
+.sw .info{padding:12px;display:grid;gap:3px;font-size:var(--s5)}
+.sw code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:var(--s6);color:var(--muted)}
+.typeline{display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--line)}
+
+/* aplicaciones */
+.apps{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.apps>*{min-width:0}
+.biz-col{grid-column:span 5;display:grid;gap:14px;align-content:start}
+.slide{grid-column:span 7}
+.ig{grid-column:span 12;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;max-width:720px}
+@media (max-width:860px){.biz-col,.slide{grid-column:span 12}}
+.biz{aspect-ratio:85/55;border-radius:6px;padding:8%;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 30px -18px rgba(0,0,0,.35);font-size:clamp(9px,1.25vw,13px)}
+.biz .nm{font-stretch:112%;font-weight:600;font-size:1.25em}
+.biz .ct{display:grid;gap:.2em;font-size:.85em}
+.sl{aspect-ratio:16/9;border-radius:4px;background:var(--b-papel);color:var(--b-tinta);border:1px solid var(--line);padding:5% 5.5%;display:grid;grid-template-columns:1.1fr 1fr;gap:6%;font-size:clamp(7px,1.05vw,12px);overflow:hidden}
+.sl .l{display:flex;flex-direction:column;justify-content:space-between}
+.sl .ey{letter-spacing:.2em;font-weight:600;font-size:.85em;text-transform:uppercase;color:var(--b-grafito)}
+.sl h4{font-stretch:125%;font-weight:700;font-size:2.6em;line-height:1.02;margin:.4em 0 0}
+.sl .r{display:grid;align-content:center;gap:1.2em}
+.sl .r div{border-top:1px solid var(--b-tinta);padding-top:.6em;position:relative}
+.sl .r div:first-child::before{content:"";position:absolute;top:-.35em;left:0;width:.7em;height:.7em;border-radius:50%;background:var(--b-senal)}
+.sl .r b{display:block;font-weight:600}
+.sl .r span{color:var(--b-grafito);display:block;line-height:1.35}
+.post{aspect-ratio:1;display:flex;flex-direction:column;justify-content:space-between;padding:9%;font-size:clamp(8px,1.4vw,13px);overflow:hidden}
+.post .q{font-family:var(--serif);font-size:1.5em;line-height:1.2}
+.post .k{font-stretch:125%;font-weight:700;font-size:2em;line-height:1.02}
+.post .e{letter-spacing:.2em;font-weight:600;font-size:.75em;text-transform:uppercase}
+.browser{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--b-papel);color:var(--b-tinta);margin-top:24px}
+.bbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#E3E4E1;border-bottom:1px solid #D2D5D4}
+.bbar i{width:10px;height:10px;border-radius:50%;background:#C3C6C5;display:block}
+.bbar .url{margin-left:12px;flex:1;min-width:0;background:#F3F3F0;border-radius:6px;padding:4px 10px;font-size:var(--s6);color:#5E636A}
+.site{font-size:clamp(12px,1.2vw,15px)}
+.site .nav{display:flex;align-items:center;gap:20px;padding:18px clamp(16px,4%,40px);border-bottom:1px solid #D2D5D4}
+.site .nav .links{margin-left:auto;display:flex;gap:22px;font-size:.85em}
+.site .cta{background:#111315;color:#F3F3F0;padding:.6em 1.1em;border-radius:99px;font-size:.8em;font-weight:600;white-space:nowrap}
+@media (max-width:760px){.site .nav .links{display:none}.site .nav .cta{margin-left:auto}}
+.site .h{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);padding:clamp(28px,6vw,72px) clamp(16px,4%,40px);align-items:end}
+@media (max-width:760px){.site .h{grid-template-columns:1fr}}
+.site h5{font-stretch:125%;font-weight:700;font-size:clamp(1.9rem,4.6vw,3.7rem);line-height:1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.site h5 em{font-family:var(--serif);font-weight:400;letter-spacing:0;font-stretch:100%}
+.site .lead{display:grid;gap:18px;color:#5E636A}
+.site .b1{background:#111315;color:#F3F3F0;padding:.8em 1.3em;border-radius:99px;font-weight:600;font-size:.9em;display:inline-flex;gap:.6em;align-items:center;justify-self:start}
+.site .b1 i{width:.55em;height:.55em;background:#EE8A22;border-radius:50%;display:block}
+.site .route-line{padding:0 clamp(16px,4%,40px) clamp(28px,5vw,48px)}
+
+/* por qué */
+.cat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:0 28px}
+.cat div{padding:14px 0;border-top:1px solid var(--line);display:grid;gap:3px;font-size:var(--s5)}
+.cat a{color:var(--fg);font-weight:600;text-decoration:none}
+.cat a:hover{text-decoration:underline}
+.insight{margin-top:28px;background:var(--tile);color:var(--tile-fg);border-radius:4px;padding:clamp(22px,4vw,36px);display:grid;gap:10px}
+.insight p{max-width:70ch}
+.plat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px}
+.plat div{background:var(--bg);padding:20px;display:grid;gap:6px;align-content:start}
+.plat p{font-size:.95rem}
+
+/* cuestionario */
+.quiz{display:grid;gap:36px}
+.q{display:grid;gap:14px;border:0;padding:0;margin:0;min-width:0}
+.q legend{padding:0;display:grid;gap:4px;margin-bottom:14px}
+.q legend b{font-stretch:112%;font-weight:600;font-size:1.15rem}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.opt{position:relative;display:grid;gap:10px;border:1px solid var(--line);border-radius:4px;padding:14px;background:var(--card);cursor:pointer;align-content:start;font-size:var(--s5)}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .pv{background:var(--b-papel);color:var(--b-tinta);border-radius:2px;min-height:86px;display:grid;place-items:center;padding:14px}
+.opt:has(input:checked){border-color:var(--sel);box-shadow:0 0 0 1px var(--sel)}
+.opt:has(input:checked) .ck{background:var(--sel);color:var(--sel-fg);border-color:var(--sel)}
+.opt:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.opt .ck{justify-self:start;border:1px solid var(--line);border-radius:99px;padding:3px 10px;font-size:var(--s6);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.scale{display:grid;gap:12px}
+.scale .sr{display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr) minmax(0,110px);gap:12px;align-items:center;font-size:var(--s5)}
+.scale .sr span:last-child{text-align:right}
+.scale .pts{display:flex;justify-content:space-between;position:relative}
+.scale .pts::before{content:"";position:absolute;left:10px;right:10px;top:50%;height:1px;background:var(--line)}
+.scale label{position:relative;width:22px;height:22px;display:grid;place-items:center;cursor:pointer}
+.scale input{appearance:none;margin:0;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--fg);background:var(--bg);cursor:pointer}
+.scale input:checked{background:var(--b-senal);border-color:var(--b-senal);width:20px;height:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{border:1px solid var(--line);border-radius:99px;padding:8px 14px;font-size:var(--s5);cursor:pointer;background:var(--card)}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label:has(input:checked){background:var(--sel);color:var(--sel-fg);border-color:var(--sel)}
+.chips label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:.95rem;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px}
+textarea{min-height:92px;resize:vertical}
+.send{display:grid;gap:12px;background:var(--tile);color:var(--tile-fg);border-radius:4px;padding:clamp(22px,4vw,32px)}
+.send button{justify-self:start;font:inherit;font-weight:600;background:var(--b-senal);color:#111315;border:0;border-radius:99px;padding:.85em 1.4em;cursor:pointer}
+.send pre{white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:var(--s6);margin:0;opacity:.8;max-height:220px;overflow:auto}
+.send .ok{font-size:var(--s5)}
+
+/* inversión */
+.stagesl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.stg{border:1px solid var(--line);border-radius:4px;padding:22px;display:grid;gap:12px;align-content:start;background:var(--card)}
+.stg .price{font-stretch:125%;font-weight:700;font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+.stg .price small{font-size:.4em;font-weight:500;margin-right:.3em;vertical-align:.8em}
+.stg ul{margin:0;padding-left:1.1em;display:grid;gap:5px;font-size:var(--s5)}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:16px}
+.pack{border-radius:4px;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border:1px solid var(--line)}
+.pack.hl{background:var(--tile);color:var(--tile-fg);border-color:var(--tile)}
+.pack b{font-stretch:125%;font-weight:700;font-size:1.5rem;font-variant-numeric:tabular-nums}
+.pack s{opacity:.6;font-size:var(--s5);margin-right:8px}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;margin-top:24px;font-size:var(--s5)}
+.terms div{display:grid;gap:4px}
+
+footer{padding-block:48px 64px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;font-size:var(--s5);color:var(--muted)}
+footer b{font-stretch:125%;font-weight:700;letter-spacing:.12em;color:var(--fg)}
+</style>
+
+{{SYMBOLS}}
+
+<header class="top">
+  <div class="wrap">
+    <svg class="a brand" [[wm]]></svg>
+    <nav aria-label="Secciones">
+      <a href="#caminos">Caminos</a><a href="#pruebas">Pruebas</a><a href="#sistema">Sistema</a><a href="#porque">Por qué</a><a href="#inversion">Inversión</a><a class="go" href="#turno">Tu turno →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div class="stage">
+      <svg class="a" viewBox="{{WM_VB}}" style="width:min(100%,860px)" role="img" aria-label="Strategies">{{WM_ANIM}}</svg>
+      <span class="desc">SOLUCIONES EMPRESARIALES</span>
+    </div>
+    <div class="intro">
+      <div>
+        <p class="lbl">Propuesta de marca · v2</p>
+        <h1 style="margin-top:16px">Tres caminos. Ustedes eligen el rumbo.</h1>
+        <div class="meta">
+          <div><span class="lbl">Cliente</span><b>Strategies</b></div>
+          <div><span class="lbl">Fecha</span><b>30 sept 2026</b></div>
+          <div><span class="lbl">Estudio</span><b>MUKIWA DEPARTMENT</b></div>
+        </div>
+      </div>
+      <div class="steps3" aria-label="Cómo usar esta propuesta">
+        <div><span class="lbl">Paso 1</span><b>Miren</b><span class="muted">Tres logos con personalidades distintas.</span></div>
+        <div><span class="lbl">Paso 2</span><b>Elijan</b><span class="muted">Respondan con clics en “Tu turno”.</span></div>
+        <div><span class="lbl">Paso 3</span><b>Envíen</b><span class="muted">Copian sus respuestas y nos las pasan por WhatsApp.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 01 CAMINOS -->
+<section id="caminos">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">01 — Caminos</div>
+      <div class="body">
+        <h2>Tres logos, tres maneras de presentarse.</h2>
+        <p class="muted">No son tres versiones del mismo dibujo. Cada camino cuenta algo distinto de Strategies y le da una personalidad diferente. Pueden quedarse con uno o pedirnos una mezcla, pero cuéntennos qué les gusta de cada uno.</p>
+      </div>
+    </div>
+    <div class="routes">
+      <article class="route rec">
+        <div class="plate">
+          <div class="row"><span class="tag">Camino 1 · De S a S</span><span class="pill">Recomendado</span></div>
+          <div class="main"><svg class="a" [[wm]] style="width:100%"></svg></div>
+          <div class="minis">
+            <span class="mini on-tinta"><svg [[iso]]></svg></span>
+            <span class="mini on-niebla"><svg [[iso]]></svg></span>
+            <span class="mini on-papel bordered"><svg [[iso]]></svg></span>
+            <span class="lbl" style="color:var(--b-grafito)">Avatar</span>
+          </div>
+        </div>
+        <div class="txt">
+          <p class="say">“Arrancamos desde donde está tu empresa.”</p>
+          <p class="muted">STRATEGIES empieza y termina con S. Dibujamos esas dos letras a mano para la marca, y el punto naranja marca el arranque del recorrido. La primera S, con su punto, es el avatar.</p>
+          <div class="bars" aria-label="Personalidad">
+            <div class="bar"><span>Cercana</span><i><b style="left:35%"></b></i><span>Institucional</span></div>
+            <div class="bar"><span>Sobria</span><i><b style="left:40%"></b></i><span>Expresiva</span></div>
+            <div class="bar"><span>Clásica</span><i><b style="left:70%"></b></i><span>Actual</span></div>
+          </div>
+          <div class="pros"><div><span class="lbl">Funciona si</span><span>quieren verse cercanos y con método, sin sonar a firma contable.</span></div><div><span class="lbl">Puede fallar si</span><span>el punto se usa en otro color o se separa de la S. Hay que cuidarlo en el manual.</span></div></div>
+        </div>
+      </article>
+
+      <article class="route">
+        <div class="plate">
+          <div class="row"><span class="tag">Camino 2 · Sello</span></div>
+          <div class="main" style="display:flex;align-items:center;justify-content:center;gap:5%"><svg class="a" [[iso-sello]] style="width:14%;flex:none"></svg><svg class="a" [[wm-plano]] style="width:70%"></svg></div>
+          <div class="minis">
+            <span class="mini sq on-tinta"><svg [[iso-sello]]></svg></span>
+            <span class="mini sq on-niebla"><svg [[iso-sello]]></svg></span>
+            <span class="mini sq on-papel bordered"><svg [[iso-sello]]></svg></span>
+            <span class="lbl" style="color:var(--b-grafito)">Avatar</span>
+          </div>
+        </div>
+        <div class="txt">
+          <p class="say">“Lo firmamos y respondemos por ello.”</p>
+          <p class="muted">La S tallada en un bloque, como un sello de aprobación. Es la evolución más directa del avatar actual de Stratégies Event: sólida, formal y muy legible en pequeño.</p>
+          <div class="bars" aria-label="Personalidad">
+            <div class="bar"><span>Cercana</span><i><b style="left:78%"></b></i><span>Institucional</span></div>
+            <div class="bar"><span>Sobria</span><i><b style="left:25%"></b></i><span>Expresiva</span></div>
+            <div class="bar"><span>Clásica</span><i><b style="left:40%"></b></i><span>Actual</span></div>
+          </div>
+          <div class="pros"><div><span class="lbl">Funciona si</span><span>su cliente principal es corporativo y valora la seriedad por encima de todo.</span></div><div><span class="lbl">Puede fallar si</span><span>buscan diferenciarse: el nombre va en tipografía de catálogo y se parece más a la categoría.</span></div></div>
+        </div>
+      </article>
+
+      <article class="route">
+        <div class="plate">
+          <div class="row"><span class="tag">Camino 3 · Seis frentes</span></div>
+          <div class="main" style="display:flex;align-items:center;justify-content:center;gap:5%"><svg class="a" [[iso-seg]] style="width:14%;flex:none"></svg><svg class="a" [[wm-plano]] style="width:70%"></svg></div>
+          <div class="minis">
+            <span class="mini on-tinta"><svg [[iso-seg]]></svg></span>
+            <span class="mini on-niebla"><svg [[iso-seg]]></svg></span>
+            <span class="mini on-papel bordered"><svg [[iso-seg]]></svg></span>
+            <span class="lbl" style="color:var(--b-grafito)">Avatar</span>
+          </div>
+        </div>
+        <div class="txt">
+          <p class="say">“Seis áreas, un mismo equipo.”</p>
+          <p class="muted">La S partida en seis tramos iguales, uno por cada área de servicio: gestión, personas, finanzas, tecnología, marca y red. Se lee como una sola letra, pero muestra que son varias piezas trabajando juntas.</p>
+          <div class="bars" aria-label="Personalidad">
+            <div class="bar"><span>Cercana</span><i><b style="left:50%"></b></i><span>Institucional</span></div>
+            <div class="bar"><span>Sobria</span><i><b style="left:62%"></b></i><span>Expresiva</span></div>
+            <div class="bar"><span>Clásica</span><i><b style="left:85%"></b></i><span>Actual</span></div>
+          </div>
+          <div class="pros"><div><span class="lbl">Funciona si</span><span>la tecnología va a pesar mucho en su oferta y quieren verse modernos.</span></div><div><span class="lbl">Puede fallar si</span><span>cambian las áreas de servicio: el símbolo queda atado al número seis. En tamaño avatar los cortes se pierden.</span></div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 02 COMPARACIÓN -->
+<section id="comparacion">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">02 — Comparación</div>
+      <div class="body">
+        <h2>Cómo los evaluamos.</h2>
+        <p class="muted">Para no recomendar por gusto, puntuamos cada camino del 1 al 5 con los mismos criterios. Es nuestra lectura y la podemos discutir.</p>
+      </div>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Criterio</th><th>1 · De S a S</th><th>2 · Sello</th><th>3 · Seis frentes</th></tr></thead>
+        <tbody>
+          <tr><td>Se distingue de otras firmas de servicios</td><td class="sc">{{5}}</td><td class="sc">{{2}}</td><td class="sc">{{4}}</td></tr>
+          <tr><td>Nace del nombre o de la oferta</td><td class="sc">{{5}}</td><td class="sc">{{3}}</td><td class="sc">{{4}}</td></tr>
+          <tr><td>Se lee bien en tamaño pequeño</td><td class="sc">{{4}}</td><td class="sc">{{5}}</td><td class="sc">{{3}}</td></tr>
+          <tr><td>Da para un sistema completo</td><td class="sc">{{5}}</td><td class="sc">{{3}}</td><td class="sc">{{4}}</td></tr>
+          <tr><td>Fácil de producir y aplicar</td><td class="sc">{{4}}</td><td class="sc">{{5}}</td><td class="sc">{{3}}</td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td>23 / 25</td><td>18 / 25</td><td>18 / 25</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CAMINO 1 DE CERCA -->
+<section id="detalle">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">03 — De cerca</div>
+      <div class="body">
+        <h2>El camino 1, letra por letra.</h2>
+        <p class="concept">El punto naranja marca <em>dónde arranca</em> el trabajo, porque Strategies empieza por conocer el negocio antes de proponer nada.</p>
+      </div>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <span class="lbl">Una S que no viene de catálogo</span>
+        <div class="art">
+          <div class="cmp">
+            <div><svg class="a" viewBox="59 -699 737 711"><g style="--node:transparent">{{PLAIN_S}}</g></svg>Tipografía estándar</div>
+            <div><svg [[iso]]></svg>S Strategies</div>
+          </div>
+        </div>
+        <p class="muted" style="font-size:.9rem">La S de la tipografía tiene curvas desiguales. La nuestra se construye con dos óvalos del mismo tamaño y un trazo parejo, así la inicial y la final se vuelven reconocibles. El resto de letras sale de Archivo Expanded para que el nombre se lea sin esfuerzo.</p>
+      </div>
+      <div class="panel">
+        <span class="lbl">Qué se queda fijo y qué puede variar</span>
+        <div class="art" style="gap:18px">
+          <svg class="a" [[wm]] style="width:100%"></svg>
+          <svg class="a" [[wm]] style="width:100%;--node:#111315"></svg>
+        </div>
+        <dl style="display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:var(--s5);margin:0">
+          <dt class="muted">Fijo</dt><dd style="margin:0">las dos S dibujadas y la posición del punto</dd>
+          <dt class="muted">Punto</dt><dd style="margin:0">naranja señal; en una sola tinta va del mismo color que las letras</dd>
+          <dt class="muted">Nunca</dt><dd style="margin:0">separar el punto de la S, rotarlo o cambiarlo por otro color</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRUEBAS -->
+<section id="pruebas">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">04 — Pruebas</div>
+      <div class="body">
+        <h2>Probado donde va a vivir.</h2>
+        <p class="muted">Un logo se juzga en tamaño real, no en un mockup grande. Así se comporta el camino 1 en favicon, avatar, una sola tinta, negativo y sobre foto.</p>
+      </div>
+    </div>
+    <div class="tests">
+      <div class="t w12"><div class="a on-papel"><div class="sizes">
+        <figure><svg [[iso]] width="16"></svg>16 px</figure>
+        <figure><svg [[iso]] width="24"></svg>24 px</figure>
+        <figure><svg [[iso]] width="32"></svg>32 px</figure>
+        <figure><svg [[iso]] width="48"></svg>48 px</figure>
+        <figure><svg [[wm]] width="120"></svg>120 px</figure>
+        <figure><svg [[wm]] width="220"></svg>220 px</figure>
+      </div></div><div class="c">Tamaños reales en pantalla <span>favicon · avatar · firma de correo</span></div></div>
+      <div class="t w4"><div class="a on-tinta"><svg class="a" [[wm]] style="width:88%"></svg></div><div class="c">Negativo <span>sobre tinta</span></div></div>
+      <div class="t w4"><div class="a on-papel"><svg class="a" [[wm]] style="width:88%;--node:#111315"></svg></div><div class="c">Una tinta <span>sello, fax, grabado</span></div></div>
+      <div class="t w4"><div class="a on-senal"><svg class="a" [[wm]] style="width:88%;--node:#F3F3F0"></svg></div><div class="c">Sobre señal <span>punto en papel</span></div></div>
+      <div class="t w6"><div class="photo" style="background-image:url({{FOTO}})"><div class="over"><svg class="a" [[wm]] style="width:70%;color:#F3F3F0"></svg></div></div><div class="c">Sobre fotografía <span>foto de su deck</span></div></div>
+      <div class="t w6"><div class="a on-niebla" style="gap:14px">
+        <span class="mini on-tinta" style="width:72px;height:72px"><svg [[iso]]></svg></span>
+        <span class="mini on-papel bordered" style="width:72px;height:72px"><svg [[iso]]></svg></span>
+        <span class="mini on-senal" style="width:72px;height:72px;--node:#F3F3F0"><svg [[iso]]></svg></span>
+      </div><div class="c">Avatar de Instagram y WhatsApp <span>recorte circular</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 SISTEMA -->
+<section id="sistema">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">05 — Sistema</div>
+      <div class="body">
+        <h2>La idea no se queda en el logo.</h2>
+        <p class="muted">El recorrido que empieza en el punto se convierte en el recurso gráfico de toda la marca: una línea que une pasos y áreas. El punto siempre marca “aquí estás” o “esto es lo importante”.</p>
+      </div>
+    </div>
+    <div class="map" role="img" aria-label="Mapa de servicios sobre la línea de recorrido">
+      <svg viewBox="0 0 1000 170">
+        <path d="M30 60 H300 A40 40 0 0 1 340 100 A40 40 0 0 0 380 140 H970" fill="none" stroke="#111315" stroke-width="3"/>
+        <circle cx="30" cy="60" r="11" fill="#EE8A22"/>
+        <g font-family="Archivo,Arial" font-size="15" fill="#111315">
+          <circle cx="130" cy="60" r="6" fill="#111315"/><text x="130" y="34" text-anchor="middle" font-weight="600">Gestión</text>
+          <circle cx="240" cy="60" r="6" fill="#111315"/><text x="240" y="34" text-anchor="middle" font-weight="600">Personas</text>
+          <circle cx="470" cy="140" r="6" fill="#111315"/><text x="470" y="114" text-anchor="middle" font-weight="600">Finanzas</text>
+          <circle cx="595" cy="140" r="6" fill="#111315"/><text x="595" y="114" text-anchor="middle" font-weight="600">Tecnología</text>
+          <circle cx="720" cy="140" r="6" fill="#111315"/><text x="720" y="114" text-anchor="middle" font-weight="600">Marca</text>
+          <circle cx="845" cy="140" r="6" fill="#111315"/><text x="845" y="114" text-anchor="middle" font-weight="600">Red</text>
+          <text x="30" y="92" font-size="12" fill="#5E636A">Tu negocio hoy</text>
+        </g>
+      </svg>
+    </div>
+    <div class="sys">
+      <div class="panel">
+        <span class="lbl">Color por función</span>
+        <div class="swatches">
+          <div class="sw"><div class="chip on-tinta">Tinta</div><div class="info"><b>Texto y fondos de peso</b><code>#111315</code></div></div>
+          <div class="sw"><div class="chip on-papel bordered">Papel</div><div class="info"><b>Fondo principal</b><code>#F3F3F0</code></div></div>
+          <div class="sw"><div class="chip on-niebla">Niebla</div><div class="info"><b>Superficies y áreas</b><code>#CDD6DA</code></div></div>
+          <div class="sw"><div class="chip on-senal">Señal</div><div class="info"><b>Solo el punto y las acciones</b><code>#EE8A22</code></div></div>
+        </div>
+        <p class="muted" style="font-size:.9rem">El naranja es escaso a propósito: si aparece, es porque señala algo. Blanco y negro siguen siendo la base, como en su deck.</p>
+      </div>
+      <div class="panel">
+        <span class="lbl">Tipografía</span>
+        <div class="typeline" style="border-top:0;padding-top:0"><span class="muted" style="font-size:var(--s5)">Titulares · Archivo Expanded</span><span style="font-stretch:125%;font-weight:700;font-size:1.7rem;line-height:1.05">Información para decidir.</span></div>
+        <div class="typeline"><span class="muted" style="font-size:var(--s5)">Texto · Archivo</span><span style="font-size:.95rem">Registro de transacciones, conciliaciones y cierres mensuales.</span></div>
+        <div class="typeline"><span class="muted" style="font-size:var(--s5)">Acento · Newsreader itálica</span><span style="font-family:var(--serif);font-style:italic;font-size:1.3rem">Cuéntanos qué necesitas.</span></div>
+      </div>
+      <div class="panel">
+        <span class="lbl">Voz</span>
+        <div class="voice">
+          <div><span class="lbl">Sí</span><b>Empecemos por donde estás.</b></div>
+          <div><span class="lbl">Sí</span><b>Tú decides, nosotros coordinamos.</b></div>
+          <div><span class="lbl">Sí</span><b>Planilla sin sorpresas.</b></div>
+          <div><span class="lbl">No</span><s>Soluciones integrales de clase mundial.</s></div>
+          <div><span class="lbl">No</span><s>Líderes en servicios de excelencia.</s></div>
+        </div>
+        <p class="muted" style="font-size:.9rem">Directa y cercana, de tú. Frases de trayecto: empezar, avanzar, llegar. Nada de superlativos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 APLICACIONES -->
+<section id="aplicaciones">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">06 — Aplicaciones</div>
+      <div class="body">
+        <h2>Así se ve en el día a día.</h2>
+        <p class="muted">Tarjeta, su propia diapositiva de contabilidad, Instagram y un adelanto de la web, todo con el camino 1.</p>
+      </div>
+    </div>
+    <div class="apps">
+      <div class="biz-col">
+        <div class="biz on-tinta"><svg [[iso]] width="44"></svg><svg class="a" [[wm]] style="width:62%"></svg></div>
+        <div class="biz on-papel bordered"><div><div class="nm">Nombre Apellido</div><div class="muted">Cargo</div></div><div class="ct"><span>+507 0000 0000</span><span>hola@dominio.com</span><span>dominio.com</span></div></div>
+      </div>
+      <div class="slide"><div class="sl">
+        <div class="l"><div><div class="ey">Información para decidir</div><h4>Contabilidad y gestión financiera</h4></div><svg [[wm]] style="width:45%"></svg></div>
+        <div class="r">
+          <div><b>Ciclo contable y cierres</b><span>Registro de transacciones, conciliaciones y cierres mensuales.</span></div>
+          <div><b>Estados financieros</b><span>Estados financieros y certificaciones de ingresos.</span></div>
+          <div><b>Declaraciones y trámites</b><span>Renta, declaraciones municipales e inscripciones.</span></div>
+        </div>
+      </div></div>
+      <div class="ig" aria-label="Muestra de feed de Instagram">
+        <div class="post on-papel bordered"><div class="e" style="color:#5E636A">Cómo empezamos</div><div class="q">Primero conocemos tu negocio. Después proponemos.</div></div>
+        <div class="post on-tinta" style="align-items:center;justify-content:center"><svg [[iso]] width="45%"></svg></div>
+        <div class="post on-niebla"><div class="e">03 · Personas</div><div class="k">Planilla sin sorpresas.</div></div>
+      </div>
+    </div>
+    <div class="browser">
+      <div class="bbar"><i></i><i></i><i></i><span class="url">dominio.com</span></div>
+      <div class="site">
+        <div class="nav"><svg class="a" [[wm]] style="width:150px"></svg><div class="links"><span>Servicios</span><span>Cómo trabajamos</span><span>Nuestra red</span><span>Contacto</span></div><span class="cta">Conversemos</span></div>
+        <div class="h">
+          <h5>Soluciones para tu empresa, <em>desde donde estás.</em></h5>
+          <div class="lead"><p>Gestión empresarial, tecnología y conexiones para crecer. Nos encargamos de la operación para que tú te enfoques en decidir.</p><span class="b1"><i></i>Agenda una conversación</span></div>
+        </div>
+        <div class="route-line"><svg viewBox="0 0 1000 60" style="width:100%;height:auto;display:block"><path d="M10 30 H990" stroke="#111315" stroke-width="2"/><circle cx="10" cy="30" r="8" fill="#EE8A22"/><g font-family="Archivo,Arial" font-size="13" fill="#111315"><circle cx="330" cy="30" r="5" fill="#111315"/><text x="330" y="16" text-anchor="middle">01 Conocemos tu negocio</text><circle cx="660" cy="30" r="5" fill="#111315"/><text x="660" y="16" text-anchor="middle">02 Definimos la propuesta</text><circle cx="985" cy="30" r="5" fill="#111315"/><text x="985" y="52" text-anchor="end">03 Coordinamos y damos seguimiento</text></g></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 POR QUÉ -->
+<section id="porque">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">07 — Por qué</div>
+      <div class="body">
+        <h2>Lo que vimos antes de dibujar.</h2>
+        <p class="muted">Buscamos a quienes aparecen cuando una pyme en Panamá busca a quién delegarle la contabilidad, la planilla o la administración. Estas son algunas de las firmas y lo que prometen:</p>
+      </div>
+    </div>
+    <div class="cat">
+      <div><a href="https://panamaosa.com/">Panama Outsourcing</a><span class="muted">Tercerización, asesoría laboral, planilla y selección de personal.</span></div>
+      <div><a href="https://keborkconsulting.com/servicios/outsourcing-contable/">Kebork Consulting</a><span class="muted">Outsourcing contable, planilla, impuestos y reportes.</span></div>
+      <div><a href="https://eyshfinancial.com/en/servicios/outsourcing/">Eysh Financial</a><span class="muted">Ciclo contable, planilla SIPE, recursos humanos.</span></div>
+      <div><a href="https://bbbgcontadorenpanama.com/">BBBG CPA</a><span class="muted">Asesoría contable y cumplimiento para pymes.</span></div>
+      <div><a href="https://mgp.com.pa/outsourcing-contabilidad/">MGP Panamá</a><span class="muted">Outsourcing contable y sistemas en la región.</span></div>
+      <div><a href="https://ramostorrescontadores.com/firma-de-contadores-en-panama/">Ramos Torres &amp; Asociados</a><span class="muted">Auditoría, outsourcing contable y tributario.</span></div>
+    </div>
+    <div class="insight">
+      <span class="lbl" style="color:inherit;opacity:.7">Lo que encontramos</span>
+      <p style="font-size:1.15rem;line-height:1.45">La categoría habla de contadores, trámites y cumplimiento, y casi todas cubren una o dos áreas. Strategies junta seis áreas más una red de contactos. Ese es el espacio a ocupar: no “otro contador”, sino quien ordena la operación completa y decide contigo por dónde empezar.</p>
+      <p style="font-size:var(--s5);opacity:.7">Siguiente paso: revisar sus logos, colores y sitios lado a lado para confirmar que el camino elegido no se parezca a ninguno.</p>
+    </div>
+    <div class="plat" aria-label="Borrador de plataforma de marca">
+      <div><span class="lbl">Qué hacen</span><p>Se encargan de la operación de la empresa: administración, personas, finanzas, tecnología y marca, con una sola coordinación.</p></div>
+      <div><span class="lbl">Para quién (a confirmar)</span><p>Dueños de pymes que ya no alcanzan a cubrir todo y necesitan orden sin contratar un departamento por área.</p></div>
+      <div><span class="lbl">Promesa</span><p>Empezamos por conocer tu negocio y coordinamos lo que haga falta, con tu aprobación en cada paso.</p></div>
+      <div><span class="lbl">Personalidad</span><p>Ordenada, cercana y resolutiva. No distante, no acartonada, no genérica.</p></div>
+      <div><span class="lbl">Valores que se pueden demostrar</span><p>Seguimiento con responsables y fechas. Pagos sujetos a tu aprobación. Una red que responde. Todo sale de su deck.</p></div>
+      <div><span class="lbl">Qué evitamos</span><p>Parecer contadores, usar gráficos de flechas hacia arriba o prometer excelencia sin pruebas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 TU TURNO -->
+<section id="turno">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">08 — Tu turno</div>
+      <div class="body">
+        <h2>Ahora cuéntennos ustedes.</h2>
+        <p class="muted">Toquen las opciones que más se parezcan a lo que quieren. No hay respuestas incorrectas: lo que elijan nos dice hacia dónde ajustar. Al final copian el resumen y nos lo mandan.</p>
+      </div>
+    </div>
+    <form class="quiz" id="quiz" autocomplete="off">
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 1</span><b>¿Qué camino les gusta más?</b></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="camino" id="q1a" value="1 · De S a S"><span class="pv"><svg class="a" [[wm]] style="width:100%"></svg></span><span class="ck">De S a S</span></label>
+          <label class="opt"><input type="radio" name="camino" id="q1b" value="2 · Sello"><span class="pv"><svg class="a" [[iso-sello]] style="width:26%"></svg></span><span class="ck">Sello</span></label>
+          <label class="opt"><input type="radio" name="camino" id="q1c" value="3 · Seis frentes"><span class="pv"><svg class="a" [[iso-seg]] style="width:26%"></svg></span><span class="ck">Seis frentes</span></label>
+          <label class="opt"><input type="radio" name="camino" id="q1d" value="Una mezcla"><span class="pv" style="font-family:var(--serif);font-style:italic;font-size:1.1rem">Una mezcla</span><span class="ck">Mezcla</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 2</span><b>¿Cómo se escribe el nombre?</b></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="nombre" id="q2a" value="Strategies"><span class="pv"><svg class="a" [[wm]] style="width:100%"></svg></span><span class="ck">Sin tilde</span></label>
+          <label class="opt"><input type="radio" name="nombre" id="q2b" value="Stratégies"><span class="pv"><svg class="a" [[wm-acento]] style="width:100%"></svg></span><span class="ck">Con tilde</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 3</span><b>¿Qué pasa con Stratégies Event?</b></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="event" id="q3a" value="Se reemplaza por la nueva marca"><span class="pv"><svg class="a" [[wm]] style="width:100%"></svg></span><span class="ck">Una sola marca</span></label>
+          <label class="opt"><input type="radio" name="event" id="q3b" value="Eventos queda como submarca"><span class="pv"><span style="display:flex;align-items:stretch;gap:6%;width:100%"><svg class="a" [[wm]] style="width:78%;align-self:center"></svg><span style="writing-mode:vertical-rl;transform:rotate(180deg);font-stretch:125%;font-weight:600;font-size:9px;letter-spacing:.3em;border-left:1.5px solid currentColor;padding-left:5px">EVENTOS</span></span></span><span class="ck">Submarca Eventos</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 4</span><b>¿Cómo quieren que los perciban?</b></legend>
+        <div class="scale">
+          <div class="sr"><span>Cercana</span><span class="pts">{{SCALE:p_cerc}}</span><span>Institucional</span></div>
+          <div class="sr"><span>Sobria</span><span class="pts">{{SCALE:p_sobr}}</span><span>Expresiva</span></div>
+          <div class="sr"><span>Clásica</span><span class="pts">{{SCALE:p_clas}}</span><span>Actual</span></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 5</span><b>¿Y el color de acento?</b></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="color" id="q5a" value="Naranja señal"><span class="pv"><svg class="a" [[iso]] style="width:34%"></svg></span><span class="ck">Naranja</span></label>
+          <label class="opt"><input type="radio" name="color" id="q5b" value="Azul"><span class="pv" style="--node:#2F5BEA"><svg class="a" [[iso]] style="width:34%"></svg></span><span class="ck">Azul</span></label>
+          <label class="opt"><input type="radio" name="color" id="q5c" value="Verde"><span class="pv" style="--node:#1F8A5B"><svg class="a" [[iso]] style="width:34%"></svg></span><span class="ck">Verde</span></label>
+          <label class="opt"><input type="radio" name="color" id="q5d" value="Solo blanco y negro"><span class="pv" style="--node:#111315"><svg class="a" [[iso]] style="width:34%"></svg></span><span class="ck">Blanco y negro</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 6</span><b>¿A quién le venden principalmente?</b></legend>
+        <div class="chips">
+          <label><input type="checkbox" name="publico" id="q6a" value="Pymes">Pymes</label>
+          <label><input type="checkbox" name="publico" id="q6b" value="Emprendedores">Emprendedores</label>
+          <label><input type="checkbox" name="publico" id="q6c" value="Corporativos">Corporativos</label>
+          <label><input type="checkbox" name="publico" id="q6d" value="Profesionales independientes">Profesionales independientes</label>
+          <label><input type="checkbox" name="publico" id="q6e" value="Solo Panamá">Solo Panamá</label>
+          <label><input type="checkbox" name="publico" id="q6f" value="También la región">También la región</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 7</span><b>Tres marcas que admiren, de cualquier rubro, y por qué.</b></legend>
+        <textarea id="q7" name="referentes" placeholder="Ej.: Apple por lo simple, …"></textarea>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend><span class="lbl">Pregunta 8</span><b>¿Algo que no quieran ver en su marca?</b></legend>
+        <textarea id="q8" name="evitar" placeholder="Colores, estilos o palabras que no les representan"></textarea>
+      </fieldset>
+
+      <div class="send">
+        <span class="lbl" style="color:inherit;opacity:.7">Enviar respuestas</span>
+        <p>Copien el resumen y péguenlo en nuestro chat de WhatsApp.</p>
+        <button type="button" id="copy">Copiar mis respuestas</button>
+        <span class="ok" id="copyok" role="status"></span>
+        <pre id="summary" aria-live="polite"></pre>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- 09 INVERSIÓN -->
+<section id="inversion" style="border-bottom:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">09 — Inversión</div>
+      <div class="body">
+        <h2>Por etapas, para avanzar con claridad.</h2>
+        <p class="muted">Cada etapa tiene su entregable. Pueden contratar el paquete completo o ir paso a paso sin perder lo avanzado.</p>
+      </div>
+    </div>
+    <div class="stagesl">
+      <div class="stg"><span class="lbl">Etapa 1</span><h3>Diagnóstico y estrategia</h3><div class="price"><small>USD</small>350</div><ul><li>Auditoría visual de 10 a 12 marcas de la categoría</li><li>Plataforma de marca de una página</li><li>Tono de voz y frases clave</li></ul></div>
+      <div class="stg"><span class="lbl">Etapa 2</span><h3>Identidad</h3><div class="price"><small>USD</small>650</div><ul><li>Logo final del camino elegido, 2 rondas</li><li>Wordmark, isotipo, negativo y una tinta</li><li>Archivos SVG, PNG y PDF</li></ul></div>
+      <div class="stg"><span class="lbl">Etapa 3</span><h3>Sistema y manual</h3><div class="price"><small>USD</small>750</div><ul><li>Manual de marca en PDF y web</li><li>Submarcas por área de servicio</li><li>Papelería, kit de redes y plantilla de presentación</li></ul></div>
+      <div class="stg"><span class="lbl">Etapa 4</span><h3>Web</h3><div class="price"><small>USD</small>1,500</div><ul><li>Sitio de una página, 5 secciones</li><li>WhatsApp, formulario y SEO básico</li><li>Publicación y 30 días de soporte</li></ul></div>
+    </div>
+    <div class="packs">
+      <div class="pack hl"><div><span class="lbl" style="color:inherit;opacity:.7">Recomendado</span><div style="font-weight:600">Etapas 1 a 3 · Marca completa</div></div><div><s>USD 1,750</s><b>USD 1,500</b></div></div>
+      <div class="pack"><div><span class="lbl">Todo</span><div style="font-weight:600">Etapas 1 a 4 · Marca y web</div></div><div><s>USD 3,250</s><b>USD 2,900</b></div></div>
+    </div>
+    <div class="terms">
+      <div><span class="lbl">Forma de pago</span><span>50% para iniciar, 50% contra entrega de cada etapa.</span></div>
+      <div><span class="lbl">No incluye</span><span>Dominio, hosting, impresión ni sesión de fotos.</span></div>
+      <div><span class="lbl">Tiempos</span><span>Marca completa en 3 semanas; la web suma 2 más.</span></div>
+      <div><span class="lbl">Vigencia</span><span>Propuesta válida por 15 días.</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="a" [[wm]] style="width:150px;color:var(--fg)"></svg>
+    <span>Propuesta preparada por <b>MUKIWA DEPARTMENT</b> · Graphic Design Dept.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('quiz'), out=document.getElementById('summary'), ok=document.getElementById('copyok');
+  function val(n){var e=form.querySelector('input[name="'+n+'"]:checked');return e?e.value:'—'}
+  function many(n){var a=[].map.call(form.querySelectorAll('input[name="'+n+'"]:checked'),function(e){return e.value});return a.length?a.join(', '):'—'}
+  function scale(n,l,r){var v=val(n);return v==='—'?'—':(v+'/5 (1 '+l+', 5 '+r+')')}
+  function build(){
+    var t=['Respuestas Strategies · propuesta v2',
+      '1. Camino: '+val('camino'),
+      '2. Nombre: '+val('nombre'),
+      '3. Stratégies Event: '+val('event'),
+      '4. Cercana–Institucional: '+scale('p_cerc','cercana','institucional'),
+      '   Sobria–Expresiva: '+scale('p_sobr','sobria','expresiva'),
+      '   Clásica–Actual: '+scale('p_clas','clásica','actual'),
+      '5. Color de acento: '+val('color'),
+      '6. Público: '+many('publico'),
+      '7. Marcas que admiran: '+(document.getElementById('q7').value.trim()||'—'),
+      '8. Evitar: '+(document.getElementById('q8').value.trim()||'—')];
+    out.textContent=t.join('\n');return out.textContent;
+  }
+  form.addEventListener('input',build);form.addEventListener('change',build);build();
+  document.getElementById('copy').addEventListener('click',function(){
+    var text=build();
+    function fallback(){var r=document.createRange();r.selectNodeContents(out);var s=getSelection();s.removeAllRanges();s.addRange(r);ok.textContent='Texto seleccionado. Cópienlo con Ctrl+C o mantengan presionado en el celular.'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){ok.textContent='Copiado. Péguenlo en WhatsApp.'},fallback)}else{fallback()}
+  });
+})();
+</script>
