@@ -1,0 +1,16 @@
+/* Strategies · tokens de marca (propuesta v0.1, ruta A) */
+:root{
+  --st-tinta:#111315;   /* texto, fondos de peso */
+  --st-papel:#F3F3F0;   /* fondo principal */
+  --st-niebla:#CDD6DA;  /* superficies, áreas de servicio */
+  --st-grafito:#5E636A; /* texto secundario, líneas */
+  --st-senal:#EE8A22;   /* nodo, botones, datos clave (máx. 5% de la superficie) */
+
+  --st-font-display:"Archivo","Helvetica Neue",Arial,sans-serif; /* font-stretch:125%; weight 700 */
+  --st-font-text:"Archivo","Helvetica Neue",Arial,sans-serif;    /* 400 / 600 */
+  --st-font-accent:"Newsreader",Georgia,serif;                   /* italic, solo citas y definiciones */
+
+  --st-logo-stroke:15;  /* x: grosor del trazo */
+  --st-logo-radius:21;  /* 1,4x */
+  --st-logo-clear:.5;   /* margen libre = ½ altura de la S */
+}
