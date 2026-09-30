@@ -8,6 +8,7 @@ from fontTools.pens.transformPen import TransformPen
 
 HERE = pathlib.Path(__file__).parent
 FONT = str(HERE / "Archivo-Expanded-SemiBold.ttf")
+FONT_LIGHT = str(HERE / "Archivo-Expanded-Light.ttf")
 T = 138            # grosor del trazo de la S (≈ 0,9 del asta de la I)
 TRACK = 60         # tracking entre letras (unidades de 1000)
 GAP = 70           # aire extra entre la S inicial y la T para el nodo
@@ -26,22 +27,22 @@ def s_geom(x, a0=A0):
          f"A{rx:.1f} {ry:.1f} 0 0 1 {e[0]:.1f} {e[1]:.1f}")
     return d, P(c1, NODE_A)
 
-def shape(text):
-    font = hb.Font(hb.Face(hb.Blob.from_file_path(FONT)))
+def shape(text, fontfile=FONT, track=TRACK):
+    font = hb.Font(hb.Face(hb.Blob.from_file_path(fontfile)))
     buf = hb.Buffer(); buf.add_str(text); buf.guess_segment_properties(); hb.shape(font, buf, {"kern": True})
     x, out = 0, []
     for inf, pos in zip(buf.glyph_infos, buf.glyph_positions):
-        out.append((text[inf.cluster], x + pos.x_offset)); x += pos.x_advance + TRACK
-    return out, x - TRACK
+        out.append((text[inf.cluster], x + pos.x_offset)); x += pos.x_advance + track
+    return out, x - track
 
 def glyph(f, ch, dx):
     gs = f.getGlyphSet(); pen = SVGPathPen(gs)
     gs[f.getBestCmap()[ord(ch)]].draw(TransformPen(pen, (1, 0, 0, -1, dx, 0)))
     return pen.getCommands()
 
-def wordmark(text="STRATEGIES", custom=True, node=True):
+def wordmark(text="STRATEGIES", custom=True, node=True, fontfile=FONT, track=TRACK):
     """Devuelve (viewBox, cuerpo) con currentColor para la tinta y var(--node) para el nodo."""
-    f = TTFont(FONT); gl, width = shape(text)
+    f = TTFont(fontfile); gl, width = shape(text, fontfile, track)
     parts, dots = [], []
     for i, (ch, x) in enumerate(gl):
         if custom and i > 0: x += GAP
@@ -62,10 +63,10 @@ def isotype():
             f'<path d="{d}" fill="none" stroke="currentColor" stroke-width="{T}"/>'
             f'<circle cx="{n[0]:.1f}" cy="{n[1]:.1f}" r="{T/2}" style="fill:var(--node,#EE8A22)"/>')
 
-def segmented():
-    d, _ = s_geom(0)
-    return (f"{SX0} {STOP} {SX1-SX0} {SBOT-STOP}",
-            f'<path d="{d}" pathLength="600" stroke-dasharray="90 12" fill="none" stroke="currentColor" stroke-width="{T}"/>')
+def line_s():
+    """Camino 3: una sola línea continua, rectas y curvas de radio fijo, como una pista."""
+    return ("0 0 130 100", '<path d="M125 5 H27.5 A22.5 22.5 0 0 0 27.5 50 H102.5 A22.5 22.5 0 0 1 102.5 95 H5" '
+            'fill="none" stroke="currentColor" stroke-width="10"/>')
 
 def seal():
     return ("8 8 84 84", '<path fill="currentColor" d="M40 10 H82 A8 8 0 0 1 90 18 V31 H51 A6 6 0 0 0 51 43 H90 V60 '
@@ -73,7 +74,8 @@ def seal():
 
 ASSETS = {
     "wm": wordmark(), "wm-acento": wordmark("STRATÉGIES"), "wm-plano": wordmark(custom=False),
-    "iso": isotype(), "iso-seg": segmented(), "iso-sello": seal(),
+    "wm-ligero": wordmark(custom=False, fontfile=FONT_LIGHT, track=200),
+    "iso": isotype(), "iso-linea": line_s(), "iso-sello": seal(),
 }
 
 def svg_file(vb, body, ink="#111315", bg=None):

@@ -1,0 +1,70 @@
+<title>Strategies · Inversión</title>
+<meta name="description" content="Inversión por etapas para la marca de Strategies. Por MUKIWA DEPARTMENT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap">
+<style>
+/* Layout: hoja de inversión de una columna, compañera de la propuesta v2 y con sus mismos tokens. */
+:root{
+  --b-tinta:#111315; --b-papel:#F3F3F0; --b-senal:#EE8A22;
+  --bg:#F3F3F0; --fg:#111315; --muted:#5E636A; --line:#D2D5D4; --card:#FBFBF9; --tile:#111315; --tile-fg:#F3F3F0;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif; --gut:clamp(16px,4vw,48px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1113;--fg:#ECEDEA;--muted:#9AA0A7;--line:#2A2E32;--card:#15181A;--tile:#ECEDEA;--tile-fg:#111315;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1113;--fg:#ECEDEA;--muted:#9AA0A7;--line:#2A2E32;--card:#15181A;--tile:#ECEDEA;--tile-fg:#111315;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:var(--gut);padding-block:clamp(40px,7vw,88px)}
+h1,h3{font-stretch:125%;font-weight:650;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:700;letter-spacing:-.02em}
+h3{font-size:1.2rem;font-stretch:112%;font-weight:600}
+p{margin:0;max-width:62ch}
+.lbl{font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.muted{color:var(--muted)}
+svg.a{display:block;height:auto;max-width:100%}
+header{display:grid;gap:28px;margin-bottom:clamp(36px,6vw,64px)}
+.stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px}
+.stg{border:1px solid var(--line);border-radius:4px;padding:22px;display:grid;gap:12px;align-content:start;background:var(--card)}
+.price{font-stretch:125%;font-weight:700;font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-size:.4em;font-weight:500;margin-right:.3em;vertical-align:.8em}
+ul{margin:0;padding-left:1.1em;display:grid;gap:5px;font-size:.8125rem}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:16px}
+.pack{border-radius:4px;padding:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border:1px solid var(--line)}
+.pack.hl{background:var(--tile);color:var(--tile-fg);border-color:var(--tile)}
+.pack b{font-stretch:125%;font-weight:700;font-size:1.5rem;font-variant-numeric:tabular-nums}
+.pack s{opacity:.6;font-size:.8125rem;margin-right:8px}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;margin-top:28px;font-size:.8125rem;border-top:1px solid var(--line);padding-top:24px}
+.terms div{display:grid;gap:4px}
+footer{margin-top:56px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;font-size:.8125rem;color:var(--muted)}
+footer b{font-stretch:125%;font-weight:700;letter-spacing:.12em;color:var(--fg)}
+</style>
+
+{{SYMBOLS}}
+
+<main class="wrap">
+  <header>
+    <svg class="a" [[wm]] style="width:190px;color:var(--fg)"></svg>
+    <div style="display:grid;gap:14px">
+      <span class="lbl">Inversión · complemento de la propuesta v2</span>
+      <h1>Por etapas, para avanzar con claridad.</h1>
+      <p class="muted">Cada etapa tiene su entregable. Pueden contratar el paquete completo o ir paso a paso sin perder lo avanzado. Si su presupuesto es otro, ajustamos el alcance.</p>
+    </div>
+  </header>
+  <div class="stages">
+    <div class="stg"><span class="lbl">Etapa 1</span><h3>Diagnóstico y estrategia</h3><div class="price"><small>USD</small>350</div><ul><li>Auditoría visual de 10 a 12 marcas de la categoría</li><li>Plataforma de marca de una página</li><li>Tono de voz y frases clave</li></ul></div>
+    <div class="stg"><span class="lbl">Etapa 2</span><h3>Identidad</h3><div class="price"><small>USD</small>650</div><ul><li>Logo final del camino elegido, 2 rondas</li><li>Wordmark, isotipo, negativo y una tinta</li><li>Archivos SVG, PNG y PDF</li></ul></div>
+    <div class="stg"><span class="lbl">Etapa 3</span><h3>Sistema y manual</h3><div class="price"><small>USD</small>750</div><ul><li>Manual de marca en PDF y web</li><li>Submarcas por área de servicio</li><li>Papelería, kit de redes y plantilla de presentación</li></ul></div>
+    <div class="stg"><span class="lbl">Etapa 4</span><h3>Web</h3><div class="price"><small>USD</small>1,500</div><ul><li>Sitio de una página, 5 secciones</li><li>WhatsApp, formulario y SEO básico</li><li>Publicación y 30 días de soporte</li></ul></div>
+  </div>
+  <div class="packs">
+    <div class="pack hl"><div><span class="lbl" style="color:inherit;opacity:.7">Recomendado</span><div style="font-weight:600">Etapas 1 a 3 · Marca completa</div></div><div><s>USD 1,750</s><b>USD 1,500</b></div></div>
+    <div class="pack"><div><span class="lbl">Todo</span><div style="font-weight:600">Etapas 1 a 4 · Marca y web</div></div><div><s>USD 3,250</s><b>USD 2,900</b></div></div>
+  </div>
+  <div class="terms">
+    <div><span class="lbl">Forma de pago</span><span>50% para iniciar, 50% contra entrega de cada etapa.</span></div>
+    <div><span class="lbl">No incluye</span><span>Dominio, hosting, impresión ni sesión de fotos.</span></div>
+    <div><span class="lbl">Tiempos</span><span>Marca completa en 3 semanas; la web suma 2 más.</span></div>
+    <div><span class="lbl">Vigencia</span><span>Propuesta válida por 15 días.</span></div>
+  </div>
+  <footer><span>Propuesta preparada por <b>MUKIWA DEPARTMENT</b></span><span>30 sept 2026</span></footer>
+</main>
