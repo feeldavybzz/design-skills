@@ -8,7 +8,7 @@ from fontTools.pens.transformPen import TransformPen
 
 HERE = pathlib.Path(__file__).parent
 FONT = str(HERE / "Archivo-Expanded-SemiBold.ttf")
-FONT_LIGHT = str(HERE / "Archivo-Expanded-Light.ttf")
+FONT_GEO = str(HERE / "Outfit-SemiBold.ttf")
 T = 138            # grosor del trazo de la S (≈ 0,9 del asta de la I)
 TRACK = 60         # tracking entre letras (unidades de 1000)
 GAP = 70           # aire extra entre la S inicial y la T para el nodo
@@ -63,10 +63,25 @@ def isotype():
             f'<path d="{d}" fill="none" stroke="currentColor" stroke-width="{T}"/>'
             f'<circle cx="{n[0]:.1f}" cy="{n[1]:.1f}" r="{T/2}" style="fill:var(--node,#EE8A22)"/>')
 
-def line_s():
-    """Camino 3: una sola línea continua, rectas y curvas de radio fijo, como una pista."""
-    return ("0 0 130 100", '<path d="M125 5 H27.5 A22.5 22.5 0 0 0 27.5 50 H102.5 A22.5 22.5 0 0 1 102.5 95 H5" '
-            'fill="none" stroke="currentColor" stroke-width="10"/>')
+GEO_S = "M100 0 V50 H50 A25 25 0 0 1 50 0Z M0 100 V50 H50 A25 25 0 0 1 50 100Z"
+
+def geo_iso():
+    """Camino 3: dos piezas iguales (medio disco + cuadrado), una girada 180°, que se tocan en un punto."""
+    return ("0 0 100 100", f'<path fill="currentColor" d="{GEO_S}"/>')
+
+def geo_lockup():
+    """Isotipo geométrico + nombre en minúsculas (Outfit SemiBold). La S mide 1,45 veces la altura de x."""
+    from fontTools.pens.boundsPen import BoundsPen
+    f = TTFont(FONT_GEO); gl, width = shape("strategies", FONT_GEO, -25)
+    xh = f["OS/2"].sxHeight; size = xh * 1.45; gap = xh * .5
+    gs = f.getGlyphSet(); top, bot = 0, 0
+    for ch, x in gl:
+        bp = BoundsPen(gs); gs[f.getBestCmap()[ord(ch)]].draw(bp)
+        top, bot = max(top, bp.bounds[3]), min(bot, bp.bounds[1])
+    k = size / 100; dx = size + gap
+    iso = f'<path fill="currentColor" transform="translate(0 {-size:.1f}) scale({k:.3f})" d="{GEO_S}"/>'
+    letters = "".join(f'<path fill="currentColor" d="{glyph(f, ch, x + dx)}"/>' for ch, x in gl)
+    return f"0 {-top:.0f} {dx + width:.0f} {top - bot:.0f}", iso + letters
 
 def seal():
     return ("8 8 84 84", '<path fill="currentColor" d="M40 10 H82 A8 8 0 0 1 90 18 V31 H51 A6 6 0 0 0 51 43 H90 V60 '
@@ -74,8 +89,8 @@ def seal():
 
 ASSETS = {
     "wm": wordmark(), "wm-acento": wordmark("STRATÉGIES"), "wm-plano": wordmark(custom=False),
-    "wm-ligero": wordmark(custom=False, fontfile=FONT_LIGHT, track=200),
-    "iso": isotype(), "iso-linea": line_s(), "iso-sello": seal(),
+    "lock-geo": geo_lockup(),
+    "iso": isotype(), "iso-geo": geo_iso(), "iso-sello": seal(),
 }
 
 def svg_file(vb, body, ink="#111315", bg=None):

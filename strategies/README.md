@@ -12,7 +12,7 @@ El wordmark usa Archivo Expanded (Google Fonts). Hay que pasarlo a contornos cua
 
 La v2 sigue el método de `.claude/skills/branding/SKILL.md`: primero lo visual y después un cuestionario para que el cliente elija.
 
-- `v2/index.html`: la propuesta para el cliente. Trae tres caminos (De S a S, Sello, Una línea), una tabla de puntuación, pruebas a escala real, el sistema, las aplicaciones, el mapa de la categoría y un cuestionario visual con pregunta de presupuesto.
+- `v2/index.html`: la propuesta para el cliente. Trae tres caminos (De S a S, Sello, Encaje), una tabla de puntuación, pruebas a escala real, el sistema, las aplicaciones, el mapa de la categoría y un cuestionario visual con pregunta de presupuesto.
 - `v2/inversion.html`: los precios por etapas, aparte, para enviarlos solo cuando el cliente pregunte.
 - `v2/logo/`: el wordmark, el isotipo y las rutas en SVG, con sus versiones en negativo.
-- `v2/src/`: los scripts que generan todo. `logos.py` traza el wordmark con Archivo Expanded SemiBold (licencia OFL) y dibuja las S propias; `build.py` arma la página a partir de `template.html`. Para regenerar: `pip install fonttools uharfbuzz && python3 v2/src/logos.py && python3 v2/src/build.py`.
+- `v2/src/`: los scripts que generan todo. `logos.py` traza los wordmarks con Archivo Expanded SemiBold y Outfit SemiBold (ambas con licencia OFL) y dibuja las S propias; `build.py` arma la página a partir de `template.html`. Para regenerar: `pip install fonttools uharfbuzz && python3 v2/src/logos.py && python3 v2/src/build.py`.
