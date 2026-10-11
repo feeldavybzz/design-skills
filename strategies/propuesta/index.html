@@ -1,0 +1,712 @@
+<title>Strategies · Propuesta de marca</title>
+<meta name="description" content="Propuesta de identidad, manual de marca y preview web para Strategies, por MUKIWA DEPARTMENT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,62..125,400&family=Newsreader:ital,opsz,wght@1,6..72,300..500&display=swap">
+<style>
+/* Layout: documento de propuesta en columnas de 12, cada sección abre con su número de capítulo del manual y un rótulo lateral. */
+:root{
+  /* Identidad fija de Strategies (no cambia con el tema: son muestras de marca) */
+  --b-tinta:#111315;   /* negro de tinta, sesgo azul frío */
+  --b-papel:#F3F3F0;   /* blanco papel, del escritorio del moodboard */
+  --b-grafito:#5E636A; /* gris lápiz */
+  --b-niebla:#CDD6DA;  /* azul niebla, de la agenda del moodboard */
+  --b-senal:#EE8A22;   /* naranja señal, de la calculadora del deck */
+
+  /* Tokens de la página (tema claro) */
+  --bg:#F3F3F0; --fg:#111315; --muted:#5E636A; --soft:#E6E8E6; --line:#D2D5D4;
+  --card:#FBFBF9; --accent:#C9690F; --tile:#111315; --tile-fg:#F3F3F0;
+
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --text:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+
+  --s1:clamp(2.6rem,7vw,5.6rem); --s2:clamp(1.7rem,3.6vw,2.6rem); --s3:1.25rem; --s4:1rem; --s5:.8125rem; --s6:.6875rem;
+  --gut:clamp(16px,4vw,48px); --max:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1113; --fg:#ECEDEA; --muted:#9AA0A7; --soft:#1B1E21; --line:#2A2E32; --card:#15181A; --accent:#F29A3A; --tile:#ECEDEA; --tile-fg:#111315; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1113; --fg:#ECEDEA; --muted:#9AA0A7; --soft:#1B1E21; --line:#2A2E32; --card:#15181A; --accent:#F29A3A; --tile:#ECEDEA; --tile-fg:#111315; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:var(--s4);line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+h1,h2,h3{font-family:var(--display);font-stretch:125%;font-weight:650;letter-spacing:-.01em;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:var(--s2)}
+h3{font-size:var(--s3);font-stretch:112%;font-weight:600}
+p{margin:0;max-width:62ch}
+.lbl{font-size:var(--s6);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.serif{font-family:var(--serif);font-style:italic;font-weight:400}
+.muted{color:var(--muted)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* barra superior */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:56px}
+.top .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-stretch:125%;font-weight:650;letter-spacing:.14em;font-size:.8rem}
+.top nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+.top nav a{font-size:var(--s5);text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--fg)}
+@media (max-width:760px){.top nav{display:none}}
+
+/* secciones */
+section{padding-block:clamp(56px,9vw,112px);border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:24px 40px;margin-bottom:clamp(32px,5vw,56px)}
+.head .num{font-family:var(--display);font-stretch:125%;font-weight:600;font-size:var(--s5);color:var(--muted);padding-top:.5em;font-variant-numeric:tabular-nums}
+.head .body{display:grid;gap:16px}
+@media (max-width:760px){.head{grid-template-columns:1fr;gap:8px}}
+
+/* héroe */
+.hero{padding-block:clamp(48px,8vw,104px) clamp(40px,6vw,72px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,80px);align-items:end}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:var(--s1);font-weight:700;letter-spacing:-.02em}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px}
+.hero .meta div{display:grid;gap:2px}
+.hero .meta b{font-weight:500;font-size:var(--s5)}
+.def{border-left:1px solid var(--fg);padding:4px 0 4px 20px;display:grid;gap:10px}
+.def .w{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1;font-style:normal}
+.def .pos{font-family:var(--serif);font-style:italic;color:var(--muted)}
+.def p{font-family:var(--serif);font-size:1.2rem;line-height:1.4}
+.hero-mark{margin-top:clamp(40px,6vw,72px);background:var(--b-papel);border:1px solid var(--line);border-radius:4px;display:grid;place-items:center;padding:clamp(40px,8vw,96px) 16px;color:var(--b-tinta);overflow:hidden}
+
+/* lockups */
+.lock{display:flex;align-items:center;gap:.38em;font-size:clamp(28px,5vw,56px);color:inherit}
+.lock svg{height:1.18em;width:auto;flex:none}
+.wm{font-family:var(--display);font-stretch:125%;font-weight:650;letter-spacing:.12em;line-height:1;white-space:nowrap}
+.lock .desc{display:block;font-size:.2em;letter-spacing:.34em;font-weight:500;margin-top:.8em;opacity:.7}
+.lock-v{flex-direction:column;gap:.35em;text-align:center}
+.lock-v svg{height:1.9em}
+
+/* análisis */
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.cols3>div{background:var(--bg);padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-top:32px}
+.areas div{border-top:2px solid var(--fg);padding-top:10px;display:grid;gap:2px}
+.areas small{font-variant-numeric:tabular-nums;color:var(--muted);font-size:var(--s6);letter-spacing:.1em}
+.areas b{font-weight:600;font-size:var(--s5)}
+.areas span{font-size:var(--s5);color:var(--muted)}
+
+/* rutas */
+.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
+.route{background:var(--card);border:1px solid var(--line);border-radius:4px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;min-width:0}
+.route.rec{border-color:var(--fg)}
+.route .stage{background:var(--b-papel);color:var(--b-tinta);aspect-ratio:4/3;display:grid;place-items:center;position:relative;border-bottom:1px solid var(--line)}
+.route .stage svg{height:52%;width:auto}
+.route .stage .tag{position:absolute;top:12px;left:12px;font-size:var(--s6);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--b-grafito)}
+.route .stage .pill{position:absolute;top:10px;right:10px;background:var(--b-tinta);color:var(--b-papel);font-size:var(--s6);letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:5px 9px;border-radius:99px}
+.route .txt{padding:22px;display:grid;gap:12px;align-content:start}
+.route .minis{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.mini{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;flex:none}
+.mini svg{height:58%;width:auto}
+.mini.sq{border-radius:12px}
+
+/* construcción */
+.build{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:860px){.build{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px;display:grid;gap:16px;min-width:0}
+.panel .art{background:var(--b-papel);color:var(--b-tinta);border-radius:2px;display:grid;place-items:center;padding:28px 16px;overflow:hidden}
+.panel .art>svg{max-width:100%;height:auto}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:var(--s5)}
+.spec dt{color:var(--muted)}
+.spec dd{margin:0;font-variant-numeric:tabular-nums}
+
+.safe{position:relative;border:1px dashed #EE8A22;padding:17px;max-width:100%}
+.safe .lock{outline:1px solid #9AA0A7}
+.safe .k{position:absolute;font-size:10px;color:#C9690F;line-height:1}
+.safe .t{top:4px;left:50%;transform:translateX(-50%)}.safe .l{left:4px;top:50%;transform:translateY(-50%)}
+/* versiones */
+.versions{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.v{border-radius:4px;border:1px solid var(--line);display:grid;grid-template-rows:1fr auto;min-height:220px;overflow:hidden;min-width:0}
+.v .a{display:grid;place-items:center;padding:28px 16px;overflow:hidden}
+.v .c{padding:10px 14px;font-size:var(--s5);border-top:1px solid var(--line);background:var(--card);color:var(--fg);display:flex;justify-content:space-between;gap:8px}
+.v .c span{color:var(--muted)}
+.v.w3{grid-column:span 3}.v.w2{grid-column:span 2}
+@media (max-width:860px){.versions{grid-template-columns:1fr 1fr}.v.w3,.v.w2{grid-column:span 2}.v.w2.half{grid-column:span 1}}
+.on-papel{background:var(--b-papel);color:var(--b-tinta)}
+.on-tinta{background:var(--b-tinta);color:var(--b-papel)}
+.on-niebla{background:var(--b-niebla);color:var(--b-tinta)}
+.on-senal{background:var(--b-senal);color:var(--b-tinta)}
+.sub{display:flex;align-items:stretch;gap:.5em;font-size:clamp(20px,2.6vw,30px)}
+.sub svg{height:1.5em;width:auto}
+.sub .wm{align-self:center}
+.sub .vd{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-stretch:125%;font-weight:600;font-size:.34em;letter-spacing:.3em;border-left:1.5px solid currentColor;padding-left:.5em;text-transform:uppercase}
+
+/* color */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px}
+.sw{border:1px solid var(--line);border-radius:4px;overflow:hidden;display:grid;background:var(--card)}
+.sw .chip{aspect-ratio:3/2;padding:14px;display:flex;align-items:flex-end;font-family:var(--display);font-stretch:125%;font-weight:600;font-size:1.1rem}
+.sw .info{padding:14px;display:grid;gap:4px;font-size:var(--s5)}
+.sw code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:var(--s6);color:var(--muted);letter-spacing:.02em}
+.ratio{display:flex;height:48px;border-radius:4px;overflow:hidden;margin-top:24px;border:1px solid var(--line)}
+.ratio div{display:flex;align-items:center;padding-inline:12px;font-size:var(--s6);letter-spacing:.1em;text-transform:uppercase;font-weight:600;white-space:nowrap;overflow:hidden}
+
+/* tipografía */
+.type{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.type>div{background:var(--bg);display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:16px 32px;padding:28px 24px;align-items:baseline}
+@media (max-width:760px){.type>div{grid-template-columns:1fr}}
+.type .spec-t{display:grid;gap:4px;font-size:var(--s5)}
+.t-disp{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:clamp(2rem,5vw,3.6rem);line-height:1;letter-spacing:-.02em;text-wrap:balance}
+.t-body{font-size:1.125rem;max-width:56ch}
+.t-serif{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.15}
+
+/* aplicaciones */
+.apps{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.apps>*{min-width:0}
+.card-biz{grid-column:span 5;display:grid;gap:14px}
+.slide{grid-column:span 7}
+.ig{grid-column:span 12;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;max-width:720px}
+@media (max-width:860px){.card-biz,.slide{grid-column:span 12}}
+.biz{aspect-ratio:85/55;border-radius:6px;padding:7% 8%;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 1px 0 rgba(0,0,0,.04),0 12px 30px -18px rgba(0,0,0,.35);font-size:clamp(9px,1.25vw,13px);max-width:100%}
+.biz .nm{font-family:var(--display);font-stretch:112%;font-weight:600;font-size:1.25em}
+.biz .ro{opacity:.7;font-size:.9em}
+.biz .ct{display:grid;gap:.2em;font-size:.85em;font-variant-numeric:tabular-nums}
+.sl{aspect-ratio:16/9;border-radius:4px;background:var(--b-papel);color:var(--b-tinta);border:1px solid var(--line);padding:5% 5.5%;display:grid;grid-template-columns:1.1fr 1fr;gap:6%;font-size:clamp(7px,1.05vw,12px);overflow:hidden;max-width:100%}
+.sl .l{display:flex;flex-direction:column;justify-content:space-between}
+.sl .ey{letter-spacing:.2em;font-weight:600;font-size:.85em;text-transform:uppercase;color:var(--b-grafito)}
+.sl h4{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:2.6em;line-height:1.02;margin:.4em 0 0;letter-spacing:-.01em}
+.sl .n{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:1em;display:flex;align-items:center;gap:.6em}
+.sl .r{display:grid;align-content:center;gap:1.2em}
+.sl .r div{border-top:1px solid var(--b-tinta);padding-top:.6em}
+.sl .r b{display:block;font-weight:600;font-size:1.05em}
+.sl .r span{color:var(--b-grafito);font-size:.95em;line-height:1.35;display:block}
+.post{aspect-ratio:1;display:flex;flex-direction:column;justify-content:space-between;padding:9%;font-size:clamp(8px,1.4vw,13px);overflow:hidden}
+.post .w{font-family:var(--serif);font-size:2.7em;line-height:1}
+.post .p{font-family:var(--serif);font-style:italic;opacity:.75}
+.post .q{font-family:var(--serif);font-size:1.35em;line-height:1.25}
+.post .k{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:2.1em;line-height:1.02}
+.post .e{letter-spacing:.2em;font-weight:600;font-size:.75em;text-transform:uppercase}
+
+/* web */
+.browser{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--b-papel);color:var(--b-tinta);box-shadow:0 30px 60px -40px rgba(0,0,0,.45)}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#E3E4E1;border-bottom:1px solid #D2D5D4}
+.bar i{width:10px;height:10px;border-radius:50%;background:#C3C6C5;display:block;flex:none}
+.bar .url{margin-left:12px;flex:1;min-width:0;background:#F3F3F0;border-radius:6px;padding:4px 10px;font-size:var(--s6);color:#5E636A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site{font-size:clamp(12px,1.2vw,15px)}
+.site .nav{display:flex;align-items:center;gap:20px;padding:18px clamp(16px,4%,40px);border-bottom:1px solid #D2D5D4}
+.site .nav .links{margin-left:auto;display:flex;gap:22px;font-size:.85em}
+.site .nav .cta{background:#111315;color:#F3F3F0;padding:.6em 1.1em;border-radius:99px;font-size:.8em;font-weight:600;white-space:nowrap}
+@media (max-width:760px){.site .nav .links{display:none}.site .nav .cta{margin-left:auto}}
+.site .hero2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);padding:clamp(28px,6vw,72px) clamp(16px,4%,40px);align-items:end}
+@media (max-width:760px){.site .hero2{grid-template-columns:1fr}}
+.site h5{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:clamp(2rem,4.8vw,3.9rem);line-height:1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.site h5 em{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:0;font-stretch:100%}
+.site .lead{display:grid;gap:18px;font-size:1em;color:#5E636A}
+.site .btns{display:flex;gap:10px;flex-wrap:wrap}
+.site .b1{background:#111315;color:#F3F3F0;padding:.8em 1.3em;border-radius:99px;font-weight:600;font-size:.9em;display:inline-flex;gap:.6em;align-items:center}
+.site .b1 i{width:.55em;height:.55em;background:#EE8A22;border-radius:50%;display:block}
+.site .b2{border:1px solid #111315;padding:.8em 1.3em;border-radius:99px;font-weight:600;font-size:.9em;color:#111315}
+.site .band{background:#111315;color:#F3F3F0;padding:clamp(24px,4vw,48px) clamp(16px,4%,40px);display:grid;gap:24px}
+.site .band .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+.site .svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#2A2E32}
+@media (max-width:760px){.site .svc{grid-template-columns:1fr}}
+.site .svc div{background:#111315;padding:18px 16px 22px;display:grid;gap:6px;align-content:start;min-width:0}
+.site .svc small{color:#9AA0A7;font-variant-numeric:tabular-nums;letter-spacing:.1em}
+.site .svc b{font-family:var(--display);font-stretch:112%;font-weight:600;font-size:1.05em}
+.site .svc span{color:#9AA0A7;font-size:.85em;line-height:1.4}
+.site .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:clamp(28px,5vw,56px) clamp(16px,4%,40px)}
+@media (max-width:760px){.site .steps{grid-template-columns:1fr}}
+.site .steps div{display:grid;gap:6px;border-top:1px solid #111315;padding-top:12px}
+.site .steps b{font-weight:600}
+.site .steps span{color:#5E636A;font-size:.9em}
+.site .steps small{font-family:var(--display);font-stretch:125%;font-weight:700;color:#5E636A}
+
+/* manual índice */
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px;counter-reset:t}
+.toc>div{display:grid;grid-template-columns:3ch 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.toc small{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:600}
+.toc span{color:var(--muted);font-size:var(--s5);display:block}
+
+/* inversión */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:4px;padding:28px 24px;display:grid;gap:18px;align-content:start;background:var(--card);min-width:0}
+.plan.hl{background:var(--tile);color:var(--tile-fg);border-color:var(--tile)}
+.plan.hl .muted,.plan.hl li::marker{color:inherit;opacity:.7}
+.plan .price{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.plan .price small{font-size:.35em;font-weight:500;letter-spacing:.06em;margin-right:.3em;vertical-align:.9em}
+.plan ul{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:var(--s5)}
+.plan .time{font-size:var(--s5);border-top:1px solid currentColor;padding-top:12px;opacity:.85}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;margin-top:28px}
+.terms div{display:grid;gap:4px;font-size:var(--s5)}
+
+/* necesitamos */
+.need{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 40px}
+.need>div{display:grid;grid-template-columns:18px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.need i{width:14px;height:14px;border:1.5px solid var(--fg);border-radius:3px;margin-top:4px;display:block}
+.need span{color:var(--muted);font-size:var(--s5);display:block}
+
+footer{padding-block:48px 64px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;font-size:var(--s5);color:var(--muted)}
+footer b{font-family:var(--display);font-stretch:125%;font-weight:700;letter-spacing:.12em;color:var(--fg)}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero-mark .draw{stroke-dasharray:600;stroke-dashoffset:0;animation:draw 1.6s cubic-bezier(.6,0,.2,1) .2s both}
+  .hero-mark .dot{animation:pop .5s cubic-bezier(.3,1.6,.5,1) 1.5s both}
+  @keyframes draw{from{stroke-dashoffset:600}}
+  @keyframes pop{from{transform:scale(0)}}
+}
+.hero-mark .dot{transform-box:fill-box;transform-origin:center}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Ruta A · Punto de partida: dos arcos de radio 21, terminales a 45°, nodo sobre la circunferencia superior -->
+  <symbol id="iso-a" viewBox="20 0 60 100">
+    <path d="M64.85 14.15 A21 21 0 0 0 29 29 A21 21 0 0 0 50 50 A21 21 0 0 1 71 71 A21 21 0 0 1 35.15 85.85" fill="none" stroke="currentColor" stroke-width="15"/>
+    <circle cx="70.92" cy="30.83" r="7.5" style="fill:var(--node,#EE8A22)"/>
+  </symbol>
+  <!-- Ruta B · Seis frentes: el mismo trazo partido en seis tramos iguales -->
+  <symbol id="iso-b" viewBox="20 0 60 100">
+    <path d="M64.85 14.15 A21 21 0 0 0 29 29 A21 21 0 0 0 50 50 A21 21 0 0 1 71 71 A21 21 0 0 1 35.15 85.85" pathLength="600" stroke-dasharray="91.6667 10" fill="none" stroke="currentColor" stroke-width="15"/>
+  </symbol>
+  <!-- Ruta C · Sello: S tallada en un bloque, dos ranuras de 12 -->
+  <symbol id="iso-c" viewBox="8 8 84 84">
+    <path fill="currentColor" d="M40 10 H82 A8 8 0 0 1 90 18 V31 H51 A6 6 0 0 0 51 43 H90 V60 A30 30 0 0 1 60 90 H18 A8 8 0 0 1 10 82 V69 H49 A6 6 0 0 0 49 57 H10 V40 A30 30 0 0 1 40 10Z"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><svg width="14" height="24" style="color:var(--fg)"><use href="#iso-a"/></svg>STRATEGIES</div>
+    <nav aria-label="Secciones">
+      <a href="#lectura">Lectura</a><a href="#rutas">Isotipo</a><a href="#manual">Manual</a><a href="#web">Web</a><a href="#inversion">Inversión</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HÉROE -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="lbl">Propuesta de identidad · Preview</p>
+        <h1 style="margin-top:18px">Una marca que se lee como un plan.</h1>
+        <div class="meta">
+          <div><span class="lbl">Cliente</span><b>Strategies</b></div>
+          <div><span class="lbl">Fecha</span><b>30 sept 2026</b></div>
+          <div><span class="lbl">Estudio</span><b>MUKIWA DEPARTMENT</b></div>
+          <div><span class="lbl">Estado</span><b>Borrador para revisión</b></div>
+        </div>
+      </div>
+      <div class="def">
+        <span class="w">estrategia</span>
+        <span class="pos">(sustantivo)</span>
+        <p>El camino que une dónde está tu empresa con dónde quiere llegar. Gestión, personas, números, tecnología y marca, en un solo plan.</p>
+      </div>
+    </div>
+    <div class="hero-mark">
+      <div class="lock" style="font-size:clamp(34px,7.5vw,88px)">
+        <svg viewBox="20 0 60 100" aria-label="Isotipo Strategies">
+          <path class="draw" d="M64.85 14.15 A21 21 0 0 0 29 29 A21 21 0 0 0 50 50 A21 21 0 0 1 71 71 A21 21 0 0 1 35.15 85.85" fill="none" stroke="currentColor" stroke-width="15" pathLength="600"/>
+          <circle class="dot" cx="70.92" cy="30.83" r="7.5" fill="#EE8A22"/>
+        </svg>
+        <div><span class="wm">STRATEGIES</span><span class="desc">SOLUCIONES EMPRESARIALES</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 01 LECTURA -->
+<section id="lectura">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">01 — Lectura</div>
+      <div class="body">
+        <h2>Lo que nos dice su deck de servicios.</h2>
+        <p class="muted">Leímos las 8 diapositivas de “Servicios Sept. 2026” y el perfil actual de Stratégies Event. Esto es lo que la marca tiene que resolver.</p>
+      </div>
+    </div>
+    <div class="cols3">
+      <div><span class="lbl">Qué son</span><h3>Un socio operativo, no una agencia.</h3><p class="muted">Gestionan la parte del negocio que el dueño no alcanza a cubrir: administración, planilla, contabilidad, tecnología, marketing y eventos. Y si algo no está en el catálogo, lo consiguen con su red.</p></div>
+      <div><span class="lbl">El riesgo</span><h3>Verse como una consultora más.</h3><p class="muted">El deck es limpio (blanco y negro, Helvetica, fotos de escritorio) pero hoy cualquier firma de servicios luce así. Hace falta un signo propio que se recuerde sin leer el nombre.</p></div>
+      <div><span class="lbl">La oportunidad</span><h3>El nombre ya es la promesa.</h3><p class="muted">“Strategies” habla de método y de camino. Su propio proceso tiene tres pasos: conocer, definir, coordinar. La S puede dibujar ese recorrido de un punto a otro.</p></div>
+    </div>
+    <div class="areas" aria-label="Áreas de servicio del deck">
+      <div><small>02</small><b>Gestión</b><span>Administración y operación</span></div>
+      <div><small>03</small><b>Personas</b><span>Recursos humanos</span></div>
+      <div><small>04</small><b>Finanzas</b><span>Contabilidad y cierres</span></div>
+      <div><small>05</small><b>Tecnología</b><span>Procesos, IA y web</span></div>
+      <div><small>06</small><b>Marca</b><span>Marketing y eventos</span></div>
+      <div><small>07</small><b>Red</b><span>Conexiones a medida</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 RUTAS -->
+<section id="rutas">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">02 — Isotipo</div>
+      <div class="body">
+        <h2>Tres rutas para la S.</h2>
+        <p class="muted">Como pidieron, la S es el isotipo. Las tres rutas comparten el mismo wordmark; cambia la idea que carga el signo. Recomendamos la ruta A.</p>
+      </div>
+    </div>
+    <div class="routes">
+      <article class="route rec">
+        <div class="stage"><span class="tag">Ruta A</span><span class="pill">Recomendada</span><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg></div>
+        <div class="txt">
+          <h3>Punto de partida</h3>
+          <p class="muted">La S es un camino y el punto naranja es donde empieza: su negocio hoy. Todo el trazo es el acompañamiento hasta el resultado. Dos arcos del mismo radio, cortes a 45° y un nodo que funciona solo como signo en avatares y favicons.</p>
+          <div class="minis">
+            <span class="mini on-tinta"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg></span>
+            <span class="mini on-niebla"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg></span>
+            <span class="mini on-papel" style="border:1px solid var(--line)"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg></span>
+          </div>
+        </div>
+      </article>
+      <article class="route">
+        <div class="stage"><span class="tag">Ruta B</span><svg viewBox="0 0 60 100"><use href="#iso-b"/></svg></div>
+        <div class="txt">
+          <h3>Seis frentes</h3>
+          <p class="muted">El mismo trazo partido en seis tramos iguales, uno por área de servicio. Se lee como una sola S, pero de cerca muestra la estructura. Permite un sistema: cada área puede resaltar su tramo en piezas internas.</p>
+          <div class="minis">
+            <span class="mini on-tinta"><svg viewBox="0 0 60 100"><use href="#iso-b"/></svg></span>
+            <span class="mini on-niebla"><svg viewBox="0 0 60 100"><use href="#iso-b"/></svg></span>
+            <span class="mini on-papel" style="border:1px solid var(--line)"><svg viewBox="0 0 60 100"><use href="#iso-b"/></svg></span>
+          </div>
+        </div>
+      </article>
+      <article class="route">
+        <div class="stage"><span class="tag">Ruta C</span><svg viewBox="0 0 84 84" style="height:46%"><use href="#iso-c"/></svg></div>
+        <div class="txt">
+          <h3>Sello</h3>
+          <p class="muted">La S tallada en un bloque, como un sello de aprobación. Es la evolución más directa del avatar actual de Stratégies Event: sólida, institucional y muy legible en tamaños pequeños.</p>
+          <div class="minis">
+            <span class="mini sq on-papel" style="border:1px solid var(--line)"><svg viewBox="0 0 84 84"><use href="#iso-c"/></svg></span>
+            <span class="mini sq on-niebla"><svg viewBox="0 0 84 84"><use href="#iso-c"/></svg></span>
+            <span class="mini sq on-tinta"><svg viewBox="0 0 84 84"><use href="#iso-c"/></svg></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 MANUAL: CONSTRUCCIÓN -->
+<section id="manual">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">03 — Manual</div>
+      <div class="body">
+        <h2>Construcción de la ruta A.</h2>
+        <p class="muted">Muestra del manual de marca. Todo sale de una sola medida: el grosor del trazo, <b style="color:var(--fg)">x</b>. El radio de los arcos es 1,4x y el nodo mide exactamente x.</p>
+      </div>
+    </div>
+    <div class="build">
+      <div class="panel">
+        <span class="lbl">Geometría</span>
+        <div class="art">
+          <svg viewBox="0 0 160 130" width="360" role="img" aria-label="Construcción del isotipo sobre dos circunferencias">
+            <g transform="translate(30 15)" fill="none">
+              <line x1="-20" y1="50" x2="120" y2="50" stroke="#5E636A" stroke-width=".3" stroke-dasharray="1.5 1.5"/>
+              <line x1="50" y1="-10" x2="50" y2="110" stroke="#5E636A" stroke-width=".3" stroke-dasharray="1.5 1.5"/>
+              <line x1="20" y1="-10" x2="110" y2="80" stroke="#5E636A" stroke-width=".3" stroke-dasharray="1.5 1.5"/>
+              <path d="M64.85 14.15 A21 21 0 0 0 29 29 A21 21 0 0 0 50 50 A21 21 0 0 1 71 71 A21 21 0 0 1 35.15 85.85" stroke="#111315" stroke-width="15" opacity=".14"/>
+              <circle cx="50" cy="29" r="21" stroke="#111315" stroke-width=".5"/>
+              <circle cx="50" cy="71" r="21" stroke="#111315" stroke-width=".5"/>
+              <circle cx="50" cy="29" r="28.5" stroke="#5E636A" stroke-width=".3"/>
+              <circle cx="50" cy="71" r="13.5" stroke="#5E636A" stroke-width=".3"/>
+              <circle cx="50" cy="29" r="1.2" fill="#111315"/><circle cx="50" cy="71" r="1.2" fill="#111315"/>
+              <circle cx="70.92" cy="30.83" r="7.5" fill="#EE8A22"/>
+              <text x="52" y="27" font-size="4" fill="#111315" font-family="Archivo,Arial">c₁</text>
+              <text x="52" y="69" font-size="4" fill="#111315" font-family="Archivo,Arial">c₂</text>
+              <text x="6" y="12" font-size="4" fill="#5E636A" font-family="Archivo,Arial">r = 1,4x</text>
+              <text x="80" y="33" font-size="4" fill="#C9690F" font-family="Archivo,Arial">nodo = x</text>
+              <text x="88" y="62" font-size="4" fill="#5E636A" font-family="Archivo,Arial">45°</text>
+            </g>
+          </svg>
+        </div>
+        <dl class="spec">
+          <dt>Trazo</dt><dd>x = 15 u</dd>
+          <dt>Radio de arcos</dt><dd>21 u (1,4x), centros alineados en vertical</dd>
+          <dt>Terminales</dt><dd>corte perpendicular a 45°, simétricos por rotación</dd>
+          <dt>Nodo</dt><dd>Ø 15 u, sobre la circunferencia superior a +5°</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <span class="lbl">Área de protección y tamaño mínimo</span>
+        <div class="art">
+          <div class="safe" role="img" aria-label="Área de protección igual a la mitad de la altura de la S">
+            <span class="k t">½S</span><span class="k l">½S</span>
+            <div class="lock" style="font-size:30px;color:#111315"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span></div>
+          </div>
+        </div>
+        <dl class="spec">
+          <dt>Margen libre</dt><dd>la mitad de la altura de la S en los cuatro lados</dd>
+          <dt>Mínimo digital</dt><dd>isotipo 16 px · logo horizontal 96 px de ancho</dd>
+          <dt>Mínimo impreso</dt><dd>isotipo 5 mm · logo horizontal 25 mm</dd>
+          <dt>Nunca</dt><dd>rotar la S, cambiar el color del nodo por otro que no sea señal, tinta o papel, ni separar el nodo del trazo</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 VERSIONES -->
+<section id="versiones">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">04 — Versiones</div>
+      <div class="body">
+        <h2>Un sistema, no un solo logo.</h2>
+        <p class="muted">Horizontal para documentos y web, vertical para piezas cuadradas, isotipo para redes. Las submarcas mantienen el formato vertical que ya usan en Stratégies Event.</p>
+      </div>
+    </div>
+    <div class="versions">
+      <div class="v w3 on-papel"><div class="a"><div class="lock" style="font-size:clamp(22px,3vw,38px)"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span></div></div><div class="c">Horizontal principal <span>sobre papel</span></div></div>
+      <div class="v w3 on-tinta"><div class="a"><div class="lock" style="font-size:clamp(22px,3vw,38px)"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span></div></div><div class="c">Horizontal negativo <span>sobre tinta</span></div></div>
+      <div class="v w2 on-papel"><div class="a"><div class="lock lock-v" style="font-size:clamp(18px,2vw,26px)"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span></div></div><div class="c">Vertical <span>papel</span></div></div>
+      <div class="v w2 half on-senal" style="--node:#F3F3F0"><div class="a"><svg viewBox="0 0 60 100" style="height:96px;width:auto;color:#111315"><use href="#iso-a"/></svg></div><div class="c">Isotipo sobre señal <span>nodo en papel</span></div></div>
+      <div class="v w2 half on-niebla" style="--node:#111315"><div class="a"><div class="lock" style="font-size:clamp(18px,2vw,26px)"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span></div></div><div class="c">Monocromo <span>una tinta</span></div></div>
+      <div class="v w2 on-papel"><div class="a"><div class="sub"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span><span class="vd">Eventos</span></div></div><div class="c">Submarca <span>Eventos</span></div></div>
+      <div class="v w2 on-papel"><div class="a"><div class="sub"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span><span class="vd">Personas</span></div></div><div class="c">Submarca <span>RR.HH.</span></div></div>
+      <div class="v w2 on-tinta"><div class="a"><div class="sub"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span><span class="vd">Tech</span></div></div><div class="c">Submarca <span>Tecnología</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 COLOR -->
+<section id="color">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">05 — Color</div>
+      <div class="body">
+        <h2>Sobria como su deck, con una señal.</h2>
+        <p class="muted">Mantenemos el blanco y negro que ya construyeron y lo afinamos. Los dos colores nuevos salen de sus propias fotos: el azul de la agenda y el naranja de la calculadora. El naranja se usa poco, solo para marcar el punto de partida y las acciones.</p>
+      </div>
+    </div>
+    <div class="swatches">
+      <div class="sw"><div class="chip on-tinta">Tinta</div><div class="info"><b>Texto, fondos de peso</b><code>HEX #111315 · RGB 17 19 21</code><code>CMYK 70 60 55 85</code></div></div>
+      <div class="sw"><div class="chip on-papel" style="border-bottom:1px solid var(--line)">Papel</div><div class="info"><b>Fondo principal</b><code>HEX #F3F3F0 · RGB 243 243 240</code><code>CMYK 3 2 4 0</code></div></div>
+      <div class="sw"><div class="chip on-niebla">Niebla</div><div class="info"><b>Superficies, áreas de servicio</b><code>HEX #CDD6DA · RGB 205 214 218</code><code>CMYK 20 9 10 0</code></div></div>
+      <div class="sw"><div class="chip" style="background:var(--b-grafito);color:var(--b-papel)">Grafito</div><div class="info"><b>Texto secundario, líneas</b><code>HEX #5E636A · RGB 94 99 106</code><code>CMYK 55 43 36 20</code></div></div>
+      <div class="sw"><div class="chip on-senal">Señal</div><div class="info"><b>Nodo, botones, datos clave</b><code>HEX #EE8A22 · RGB 238 138 34</code><code>CMYK 0 55 95 0 · Pantone 1495 C aprox.</code></div></div>
+    </div>
+    <div class="ratio" role="img" aria-label="Proporción de uso: papel 55, tinta 28, niebla 10, grafito 4, señal 3">
+      <div class="on-papel" style="flex:55">Papel 55%</div>
+      <div class="on-tinta" style="flex:28">Tinta 28%</div>
+      <div class="on-niebla" style="flex:10">Niebla</div>
+      <div style="flex:4;background:var(--b-grafito)"></div>
+      <div class="on-senal" style="flex:3;padding:0"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 TIPOGRAFÍA -->
+<section id="tipografia">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">06 — Tipografía</div>
+      <div class="body">
+        <h2>Una familia, dos anchos y un acento.</h2>
+        <p class="muted">Archivo es gratuita, tiene ancho variable y funciona igual en web, Canva, Google Docs y PowerPoint, así que el equipo puede producir sus piezas sin licencias. La serif itálica retoma el recurso de definición de diccionario que ya usan en su moodboard.</p>
+      </div>
+    </div>
+    <div class="type">
+      <div><div class="spec-t"><span class="lbl">Titulares</span><b>Archivo Expanded</b><span class="muted">Bold 700 · ancho 125 · -2%</span></div><div class="t-disp">Información para decidir.</div></div>
+      <div><div class="spec-t"><span class="lbl">Texto</span><b>Archivo</b><span class="muted">Regular 400 / Semibold 600 · 16/25</span></div><p class="t-body">Registro de transacciones, conciliaciones bancarias, actualización de cuentas y cierres mensuales. Información organizada para el seguimiento financiero de tu empresa.</p></div>
+      <div><div class="spec-t"><span class="lbl">Acento</span><b>Newsreader Italic</b><span class="muted">Regular 400 · solo citas y definiciones</span></div><div class="t-serif">“Cuéntanos qué necesitas. Buscamos y coordinamos la solución.”</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 APLICACIONES -->
+<section id="aplicaciones">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">07 — Aplicaciones</div>
+      <div class="body">
+        <h2>Así se ve en el día a día.</h2>
+        <p class="muted">Tarjeta, plantilla de presentación con el contenido real de su deck y las primeras publicaciones de Instagram.</p>
+      </div>
+    </div>
+    <div class="apps">
+      <div class="card-biz">
+        <div class="biz on-tinta"><svg viewBox="0 0 60 100" style="height:3.2em;width:auto;align-self:flex-start"><use href="#iso-a"/></svg><div><div class="wm" style="font-size:1.1em">STRATEGIES</div><div class="ro" style="margin-top:.5em">Soluciones empresariales</div></div></div>
+        <div class="biz on-papel" style="border:1px solid var(--line)">
+          <div><div class="nm">Nombre Apellido</div><div class="ro">Cargo</div></div>
+          <div class="ct"><span>+507 6000 0000</span><span>hola@strategies.com.pa</span><span>strategies.com.pa</span></div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="sl">
+          <div class="l">
+            <div><div class="ey">Información para decidir</div><h4>Contabilidad y gestión financiera</h4></div>
+            <div class="n"><svg viewBox="0 0 60 100" style="height:2em;width:auto"><use href="#iso-a"/></svg>04</div>
+          </div>
+          <div class="r">
+            <div><b>Ciclo contable y cierres</b><span>Registro de transacciones, conciliaciones y cierres mensuales.</span></div>
+            <div><b>Estados financieros</b><span>Estados financieros y certificaciones de ingresos.</span></div>
+            <div><b>Declaraciones y trámites</b><span>Renta, declaraciones municipales e inscripciones.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ig" aria-label="Muestra de feed de Instagram">
+        <div class="post on-papel" style="border:1px solid var(--line)"><div><div class="w">estrategia</div><div class="p">(sustantivo)</div></div><div class="q">Saber qué hacer primero para que lo demás funcione.</div></div>
+        <div class="post on-tinta" style="align-items:center;justify-content:center"><svg viewBox="0 0 60 100" style="height:48%;width:auto"><use href="#iso-a"/></svg></div>
+        <div class="post on-niebla"><div class="e">03 · Personas</div><div class="k">Planilla sin sorpresas.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 WEB -->
+<section id="web">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">08 — Web</div>
+      <div class="body">
+        <h2>Preview del sitio.</h2>
+        <p class="muted">Una sola página que explica qué hacen, cómo trabajan y lleva a una conversación por WhatsApp o formulario. El contenido sale tal cual de su deck.</p>
+      </div>
+    </div>
+    <div class="browser">
+      <div class="bar"><i></i><i></i><i></i><span class="url">strategies.com.pa</span></div>
+      <div class="site">
+        <div class="nav">
+          <div class="lock" style="font-size:18px"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span></div>
+          <div class="links"><span>Servicios</span><span>Cómo trabajamos</span><span>Nuestra red</span><span>Contacto</span></div>
+          <span class="cta">Conversemos</span>
+        </div>
+        <div class="hero2">
+          <h5>Soluciones para tu empresa, <em>en un solo plan.</em></h5>
+          <div class="lead">
+            <p>Gestión empresarial, tecnología y conexiones para crecer. Nos encargamos de la operación para que tú te enfoques en decidir.</p>
+            <div class="btns"><span class="b1"><i></i>Agenda una conversación</span><span class="b2">Ver servicios</span></div>
+          </div>
+        </div>
+        <div class="band">
+          <div class="row"><span class="lbl" style="color:#9AA0A7">Servicios</span><span style="font-family:var(--serif);font-style:italic;color:#CDD6DA">Seis frentes, un mismo equipo.</span></div>
+          <div class="svc">
+            <div><small>02</small><b>Gestión de negocios</b><span>Organización administrativa, cobros, pagos y reportes.</span></div>
+            <div><small>03</small><b>Recursos humanos</b><span>Reclutamiento, planilla, asesoría laboral y capacitación.</span></div>
+            <div><small>04</small><b>Contabilidad</b><span>Cierres, estados financieros y declaraciones.</span></div>
+            <div><small>05</small><b>Tecnología</b><span>Automatización, web, apps y soporte 24/7.</span></div>
+            <div><small>06</small><b>Marketing y eventos</b><span>Redes, video, fotografía y producción de eventos.</span></div>
+            <div><small>07</small><b>Nuestra red</b><span>Proveedores y especialistas para lo que no está en el catálogo.</span></div>
+          </div>
+        </div>
+        <div class="steps">
+          <div><small>01</small><b>Conocemos tu negocio</b><span>Revisamos necesidades, procesos y prioridades.</span></div>
+          <div><small>02</small><b>Definimos la propuesta</b><span>Acordamos servicios, entregables, plazos e inversión.</span></div>
+          <div><small>03</small><b>Coordinamos y damos seguimiento</b><span>Gestionamos el trabajo y revisamos avances contigo.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 MANUAL COMPLETO -->
+<section id="indice">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">09 — Entregable</div>
+      <div class="body">
+        <h2>Lo que incluye el manual completo.</h2>
+        <p class="muted">Lo que ven en esta página es un adelanto. El manual final se entrega en PDF y en versión web, con todos los archivos editables.</p>
+      </div>
+    </div>
+    <div class="toc">
+      <div><small>01</small><div>Esencia<span>Propósito, personalidad y tono de voz</span></div></div>
+      <div><small>02</small><div>Logotipo<span>Construcción, versiones, protección y mínimos</span></div></div>
+      <div><small>03</small><div>Usos incorrectos<span>Lo que no se hace con la marca</span></div></div>
+      <div><small>04</small><div>Color<span>HEX, RGB, CMYK, Pantone y proporciones</span></div></div>
+      <div><small>05</small><div>Tipografía<span>Jerarquías para web, impresos y documentos</span></div></div>
+      <div><small>06</small><div>Arquitectura<span>Submarcas por área de servicio</span></div></div>
+      <div><small>07</small><div>Fotografía<span>Dirección de arte y encuadres</span></div></div>
+      <div><small>08</small><div>Papelería<span>Tarjetas, hoja membretada, firma de correo</span></div></div>
+      <div><small>09</small><div>Digital<span>Plantillas de redes, presentación y web</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 INVERSIÓN -->
+<section id="inversion">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">10 — Inversión</div>
+      <div class="body">
+        <h2>Tres formas de avanzar.</h2>
+        <p class="muted">Cada etapa suma a la anterior. Pueden empezar por la identidad y sumar la web después sin perder lo invertido.</p>
+      </div>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <span class="lbl">Etapa 1</span><h3>Identidad</h3>
+        <div class="price"><small>USD</small>650</div>
+        <ul>
+          <li>Logo final sobre la ruta elegida, 2 rondas de ajustes</li>
+          <li>Versiones: horizontal, vertical, isotipo, negativo y monocromo</li>
+          <li>Paleta y tipografías</li>
+          <li>Guía básica de marca (PDF, 10 páginas)</li>
+          <li>Archivos SVG, PNG y PDF</li>
+        </ul>
+        <div class="time">Entrega en 7 días hábiles</div>
+      </div>
+      <div class="plan hl">
+        <span class="lbl" style="color:inherit;opacity:.7">Etapa 2 · Recomendada</span><h3>Marca completa</h3>
+        <div class="price"><small>USD</small>1,400</div>
+        <ul>
+          <li>Todo lo de Identidad</li>
+          <li>Manual de marca completo (PDF y web)</li>
+          <li>Submarcas por área de servicio</li>
+          <li>Papelería: tarjeta, hoja membretada y firma de correo</li>
+          <li>Kit de redes: avatar, portadas y 9 plantillas editables</li>
+          <li>Plantilla de presentación con su deck de servicios</li>
+        </ul>
+        <div class="time">Entrega en 15 días hábiles</div>
+      </div>
+      <div class="plan">
+        <span class="lbl">Etapa 3</span><h3>Marca + Web</h3>
+        <div class="price"><small>USD</small>2,900</div>
+        <ul>
+          <li>Todo lo de Marca completa</li>
+          <li>Sitio web responsive de una página con 5 secciones</li>
+          <li>Botón de WhatsApp y formulario de contacto</li>
+          <li>SEO básico y Google Business</li>
+          <li>Publicación y 30 días de soporte</li>
+        </ul>
+        <div class="time">Entrega en 4 semanas</div>
+      </div>
+    </div>
+    <div class="terms">
+      <div><span class="lbl">Forma de pago</span><span>50% para iniciar, 50% contra entrega final.</span></div>
+      <div><span class="lbl">No incluye</span><span>Dominio, hosting, impresión ni fotografía profesional.</span></div>
+      <div><span class="lbl">Rondas extra</span><span>Se cotizan aparte si el alcance cambia.</span></div>
+      <div><span class="lbl">Vigencia</span><span>Propuesta válida por 15 días.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 LO QUE NECESITAMOS -->
+<section id="necesitamos" style="border-bottom:0">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">11 — Siguiente paso</div>
+      <div class="body">
+        <h2>Lo que necesitamos de ustedes.</h2>
+        <p class="muted">Con esto cerramos la ruta y pasamos a la versión final.</p>
+      </div>
+    </div>
+    <div class="need">
+      <div><i></i><div><b>Nombre exacto</b><span>¿“Strategies” o “Stratégies” con tilde? Define el wordmark, el dominio y el usuario de redes.</span></div></div>
+      <div><i></i><div><b>Relación con Stratégies Event</b><span>¿Se reemplaza la cuenta actual o Eventos queda como submarca?</span></div></div>
+      <div><i></i><div><b>Ruta elegida</b><span>A, B o C, y qué les gusta de las otras dos.</span></div></div>
+      <div><i></i><div><b>Cliente ideal</b><span>¿Pymes, emprendedores, corporativos? ¿Solo Panamá o también la región?</span></div></div>
+      <div><i></i><div><b>Referentes</b><span>Tres marcas que admiren y tres competidores directos.</span></div></div>
+      <div><i></i><div><b>Datos de contacto</b><span>Nombres y cargos para tarjetas, WhatsApp, correo y dominio deseado.</span></div></div>
+      <div><i></i><div><b>Fotos propias</b><span>Equipo, oficina o eventos realizados. Si no hay, lo resolvemos con dirección de banco de imágenes.</span></div></div>
+      <div><i></i><div><b>Frase de marca</b><span>¿Les funciona “Soluciones empresariales” como descriptor o prefieren otra?</span></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="lock" style="font-size:18px;color:var(--fg)"><svg viewBox="0 0 60 100"><use href="#iso-a"/></svg><span class="wm">STRATEGIES</span></div>
+    <span>Propuesta preparada por <b>MUKIWA DEPARTMENT</b> · Graphic Design Dept.</span>
+  </div>
+</footer>
