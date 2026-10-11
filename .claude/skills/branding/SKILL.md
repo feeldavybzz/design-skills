@@ -1,6 +1,6 @@
 ---
 name: branding
-description: Método para desarrollar identidades de marca y logos con personalidad (estrategia antes que estilo, auditoría de categoría, rutas conceptuales con criterios, pruebas a escala real, sistema y manual). Úsala siempre que se pida un logo, branding, identidad visual, manual de marca, rebranding o una propuesta de marca para un cliente.
+description: Método de diseño gráfico para desarrollar identidades de marca y logos con personalidad (estrategia antes que estilo, auditoría de categoría, rutas conceptuales con criterios, pruebas a escala real, sistema y manual) y para presentarlas al cliente (propuesta visual con cuestionario, presupuesto aparte, hosting y mantenimiento). Úsala siempre que se pida un logo, branding, identidad visual, isotipo, wordmark, manual de marca, rebranding, una propuesta o presupuesto de marca para un cliente, o publicar esa propuesta.
 ---
 
 # Guía de criterio para Claude Design: branding y logos con personalidad
@@ -213,6 +213,46 @@ Cuando recibas una solicitud de branding:
 7. Cierra con el sistema necesario para mantener la identidad: variantes, color, tipografía, recursos gráficos y reglas de uso.
 
 **Barra de calidad:** una propuesta está lista cuando se entiende, se distingue en su contexto, funciona en usos reales, puede explicarse desde la estrategia y no depende de la tendencia del momento.
+
+## 9. Presentar la propuesta al cliente
+
+Aprendido en el proyecto Strategies (ver `references/caso-strategies.md`). Cuando el cliente es muy visual, lo que mejor funciona es:
+
+1. **Primero lo visual, después las preguntas.** Muestra 3 caminos de logo terminados como conversación, no como entrega final, y deja que el cliente reaccione ("me gusta este, pero mejor por aquí"). Las preguntas estratégicas no desaparecen: van dentro de la misma propuesta como cuestionario visual.
+2. **Tres caminos con personalidades distintas**, no tres variantes del mismo dibujo. Para cada uno incluye:
+   - una frase de concepto
+   - barras de personalidad (cercana/institucional, sobria/expresiva, clásica/actual)
+   - "funciona si" y "puede fallar si"
+   - una mini prueba de avatar
+3. **Tabla de puntuación** con los mismos 5 criterios para todos los caminos, puntuada con honestidad: distinción, nace del nombre u oferta, legibilidad pequeña, extensión a sistema, facilidad de producción.
+4. **Cuestionario visual dentro de la página:**
+   - opciones con previews clicables (camino, nombre con o sin tilde, submarca, color de acento)
+   - escalas de personalidad, público, referentes y lo que hay que evitar
+   - **rango de presupuesto**
+   - un botón "Copiar mis respuestas" que arma el resumen para pegarlo en WhatsApp. Sin backend.
+5. **El precio nunca va en la propuesta.** Pregunta su rango en el cuestionario y manda la inversión en una página aparte solo si la piden. Si ven el precio antes de enamorarse de un camino, lo comparan contra "un logo".
+6. **Publicación:** carpeta pública con solo la propuesta, marcada `noindex`, sin la página de precios. Ver `references/kit-tecnico.md`.
+
+Precios por etapas, hosting con o sin mantenimiento y propiedad del dominio: `references/presupuesto-y-hosting.md`.
+
+## 10. Criterio de Bryan (lo que aprobó y lo que rechazó)
+
+- **Aprobó:**
+  - una S dibujada a mano integrada en el wordmark ("De S a S"), con un solo gesto memorable: el punto naranja de arranque
+  - geometría sólida y modular estilo dan studio, Motus o For Arts Sake, acompañada de una tipografía simple en minúsculas con tracking cerrado
+- **Rechazó:**
+  - S partida en tramos con cortes finos: "parece que no tiene márgenes"
+  - S monolínea fina tipo pista: se veía débil y genérica
+  - Cualquier ruta que solo cambie el grosor o el color de otra
+- **Su regla:** si un camino no le gusta, se reemplaza completo por otra idea, no se maquilla. Pide referencias visuales y apunta a ellas sin copiar símbolos ni letras.
+- **El punto de la i es identidad de MUKIWA.** No usarlo como recurso en marcas de clientes.
+- **Cambios controlados:** si pide cambiar una ruta o una sección, se toca solo eso y se conserva todo lo demás.
+
+## 11. Límites del entorno
+
+- **YouTube y la mayoría de sitios externos están bloqueados** en las sesiones en la nube. Para "ver" un video, pide el archivo, capturas o un dominio permitido, y di con claridad cuando trabajas desde una transcripción o una guía ajena y no desde el video.
+- **No gastes créditos de servicios de pago** (Higgsfield, generadores de imagen o video) sin permiso explícito.
+- **Cloudflare, Chrome y el equipo del usuario no son accesibles** desde la nube sin un conector o una sesión local. Deja el entregable listo para subir y da los pasos exactos.
 
 ## Fuentes revisadas
 
